@@ -1,0 +1,10 @@
+{
+  "plugins": [ "vue" ],
+  "extends": "standard",
+  "rules": {
+    "comma-dangle": ["error", "only-multiline"],
+    "no-multiple-empty-lines": ["warn", { "max": 2 }],
+    "import/no-unresolved": 0,
+    "import/no-unassigned-import": 0
+  }
+}
