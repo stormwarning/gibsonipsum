@@ -1,8 +1,11 @@
 <template>
-    <article class="ipsum">
-        <!--<p v-for="p in ipsum">{{ p }}</p>-->
-        {{ ipsum }}
-    </article>
+    <main class="fn fl-ns w-50-ns">
+        <p class="lh-copy measure mt4 mt0-ns"
+            v-for="p in ipsum"
+            v-bind:key="p">
+            {{ p }}
+        </p>
+    </main>
 </template>
 
 <script>
@@ -21,7 +24,7 @@ export default {
             wordlist: 'getWordList',
         }),
         ipsum() {
-            return this.generateParagraph()
+            return this.buildIpsum()
         }
     },
     methods: {
@@ -29,17 +32,17 @@ export default {
             'fetchWords',
         ]),
         buildIpsum () {
-            const paragraphs = this.$store.state.paragraphs
-            // let theLipsum = []
+            let numParagraphs = this.$store.state.paragraphs
+            let theLipsum = []
 
-            for (var q = 0; q < paragraphs; q++) {
-                // Generate paragraph objects and add to output array.
-                // const paragraphLength = Math.floor(Math.random() * (this.$store.state.sentences - 1 + 1)) + 1
-                this.ipsum.push(this.generateParagraph())
+            for (var q = 0; q < numParagraphs; q++) {
+                theLipsum.push(this.generateParagraph())
             }
+
+            return theLipsum
         },
         generateParagraph () {
-            let numSentences = this.$store.state.sentences
+            let numSentences = Math.floor(Math.random() * (this.$store.state.sentences - 1 + 1)) + 1
             let p = ''
 
             for (var i = 0; i < numSentences; i++) {
@@ -59,14 +62,14 @@ export default {
                     const word = words[w].fields.word
 
                     if (i === 0) {
-                    // Capitalise the first word.
-                    s += word.charAt(0).toUpperCase() + word.slice(1) + ' '
+                        // Capitalise the first word.
+                        s += word.charAt(0).toUpperCase() + word.slice(1) + ' '
                     } else if (i === sentenceLength) {
-                    // Put a period & space after the last word.
-                    s += word + '. '
+                        // Put a period & space after the last word.
+                        s += word + '. '
                     } else {
-                    // Add a space between words.
-                    s += word + ' '
+                        // Add a space between words.
+                        s += word + ' '
                     }
                 }
             }
@@ -77,29 +80,5 @@ export default {
     mounted() {
         this.fetchWords()
     },
-
-    // computed: {
-    //     ...mapState({
-    //         ipsum,
-    //         isLoadingComplete: state => state.isLoadingComplete
-    //     })
-    // },
-
-
-    // },
-    // computed: {
-    //     ipsum() {
-    //         const paragraphs = this.$store.state.paragraphs
-    //         let theLipsum = []
-
-    //         for (var q = 0; q < paragraphs; q++) {
-    //             // Generate paragraph objects and add to output array.
-    //             // const paragraphLength = Math.floor(Math.random() * (this.$store.state.sentences - 1 + 1)) + 1
-    //             theLipsum.push(this.$store.dispatch('generateParagraph'))
-    //         }
-
-    //         return theLipsum
-    //     }
-    // }
 }
 </script>

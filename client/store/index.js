@@ -41,9 +41,7 @@ const actions = {
         let total = 0
         let wordlist = []
 
-        // wordlist = data.items
         max = data.total
-        console.log(typeof data, data)
 
         // for (const i in data.items) {
         //   wordlist.push(data.items[i])
@@ -62,54 +60,9 @@ const actions = {
         //   // }
         // }
 
-        console.log('words is: ', typeof wordlist)
-
         commit('setWordList', data.items)
       })
   },
-
-  generateSentence ({ state }) {
-    let words = state.words
-    let sentenceLength = Math.floor(Math.random() * 10) + 7
-    let s = ''
-
-    console.log('state: ', state.words)
-
-    // if (words.length) {
-      for (var i = 0; i <= sentenceLength; i++) {
-        const w = Math.floor(Math.random() * words.length)
-        console.log('rand word:', words[w])
-        const word = words[w].fields.word
-
-        if (i === 0) {
-          // Capitalise the first word.
-          s += word.charAt(0).toUpperCase() + word.slice(1) + ' '
-        } else if (i === sentenceLength) {
-          // Put a period & space after the last word.
-          s += word + '. '
-        } else {
-          // Add a space between words.
-          s += word + ' '
-        }
-      }
-    // }
-
-    return s
-  },
-
-  generateParagraph ({ state, dispatch }) {
-    let numParagraphs = state.paragraphs
-    let p = ''
-
-    console.log('gen ps: ', numParagraphs)
-
-    for (var i = 0; i < numParagraphs; i++) {
-      p += dispatch('generateSentence')
-    }
-
-    return p
-  },
-
 }
 
 const store = new Vuex.Store({
