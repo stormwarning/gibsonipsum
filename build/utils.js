@@ -23,11 +23,11 @@ _.cssProcessors = [
 
 _.outputPath = config.electron ?
   path.join(__dirname, '../app/dist') :
-  path.join(__dirname, '../dist')
+  path.join(__dirname, '../gibsonipsum')
 
 _.outputIndexPath = config.electron ?
   path.join(__dirname, '../app/dist/index.html') :
-  path.join(__dirname, '../dist/index.html')
+  path.join(__dirname, '../gibsonipsum/index.html')
 
 _.target = config.electron ?
   'electron-renderer' :
