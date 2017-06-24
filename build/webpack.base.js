@@ -27,7 +27,6 @@ module.exports = {
     alias: {
       root: path.join(__dirname, '../client'),
       components: path.join(__dirname, '../client/components'),
-      'tachyons$': 'tachyons/css/tachyons.min.css'
     },
     modules: [
       _.cwd('node_modules'),
@@ -41,11 +40,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loaders: ['vue-loader'],
-        options: {
-          loaders: {
-            'css': 'vue-style-loader!style-loader!css-loader!tachyons'
-          }
-        }
       },
       {
         test: /\.js$/,
