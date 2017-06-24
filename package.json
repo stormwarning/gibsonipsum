@@ -1,7 +1,7 @@
 {
-  "name": "vue-project",
-  "version": "0.1.0",
-  "description": "My Superb Vue Project",
+  "name": "gibsonipsum",
+  "version": "0.3.0",
+  "description": "Gibson Ipsum",
   "main": "client/index.js",
   "scripts": {
     "test": "",
@@ -11,6 +11,9 @@
   },
   "author": "Jeff <rustyangel@gmail.com>",
   "license": "MIT",
+  "now": {
+    "alias": "gibsonipsum"
+  },
   "xo": {
     "extends": "./.eslintrc",
     "esnext": true,
