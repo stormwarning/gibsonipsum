@@ -1,7 +1,14 @@
 <template>
-  <div id="app">
+  <main id="app">
     <router-view></router-view>
-  </div>
+    <footer class="bg-black-10 white-80 pv2 pv3-l ph3 ph5-ns">
+        <p class="f6"><span class="dib mr4 mr5-ns">By @stormwarning</span>
+            <a class="link white-80 hover-light-purple" href="https://github.com/stormwarning">GitHub</a> /
+            <a class="link white-80 hover-light-purple" href="https://twitter.com/stormwarning">Twitter</a> /
+            <a class="link white-80 hover-light-purple" href="http://tidaltheory.co/">Tidal Theory</a>
+        </p>
+    </footer>
+  </main>
 </template>
 
 <style>
@@ -13,5 +20,15 @@
 body {
     color: var(--fg);
     background-color: var(--bg);
+}
+
+body > main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+article {
+    flex: 1 0 auto;
 }
 </style>
