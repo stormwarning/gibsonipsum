@@ -32,6 +32,10 @@ article {
     flex: 1 0 auto;
 }
 
+abbr[title] {
+    text-decoration: none;
+}
+
 .c2sc {
     text-transform: uppercase;
     font-variant-caps: all-small-caps;
