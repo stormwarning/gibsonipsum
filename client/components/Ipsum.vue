@@ -23,7 +23,7 @@ export default {
         ...mapGetters({
             wordlist: 'getWordList',
         }),
-        ipsum() {
+        ipsum () {
             return this.buildIpsum()
         }
     },
@@ -87,7 +87,7 @@ export default {
             return s
         },
     },
-    mounted() {
+    mounted () {
         this.fetchWords()
     },
 }
