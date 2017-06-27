@@ -1,5 +1,5 @@
 <template>
-  <span class="f6 ttu tracked gray">A {{ adjective }} filler text generator.</span>
+  <span class="f6 ttu tracked gray">A {{ adjective }} placeholder text generator.</span>
 </template>
 
 <script>
