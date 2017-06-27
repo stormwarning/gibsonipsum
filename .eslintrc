@@ -1,8 +1,17 @@
 {
-  "plugins": [ "vue" ],
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+    "vue",
+    "html"
+  ],
   "extends": "standard",
   "rules": {
     "comma-dangle": ["error", "only-multiline"],
+    "indent": ["error", 4],
     "no-multiple-empty-lines": ["warn", { "max": 2 }],
     "import/no-unresolved": 0,
     "import/no-unassigned-import": 0
