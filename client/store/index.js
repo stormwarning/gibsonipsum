@@ -59,24 +59,13 @@ const actions = {
       commit('setWordList', wordlist)
 
       let filteredWords = wordlist.filter((word) => {
-        return word.fields.type === 'adjective'
+        return word.fields.type === 'adjective' && word.fields.tags.includes('compound')
       })
       let w = Math.floor(Math.random() * filteredWords.length)
       let adjective = filteredWords[w].fields.word
 
       commit('setAdjective', adjective)
     })
-  },
-  findAdjective ({ state, commit }) {
-    let words = state.words
-    let filteredWords = words.filter((word) => {
-      return word.fields.type === 'adjective'
-    })
-    let w = Math.floor(Math.random() * filteredWords.length)
-    let adjective = filteredWords[w].fields.word
-
-    commit('setAdjective', adjective)
-    // return adjective
   },
 }
 
