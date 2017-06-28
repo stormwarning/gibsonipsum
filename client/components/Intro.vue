@@ -1,5 +1,5 @@
 <template>
-  <span class="f6 ttu tracked gray">A {{ adjective }} placeholder text generator.</span>
+  <span class="f6 lh-copy ttu tracked white-50">A {{ adjective }} placeholder text generator.<br>By <a class="link white-70 hover-light-purple" href="http://tidaltheory.co/">@stormwarning</a>.</span>
 </template>
 
 <script>

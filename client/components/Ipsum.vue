@@ -1,6 +1,6 @@
 <template>
-    <main class="fn fl-ns w-50-ns">
-        <p class="lh-copy measure mt4 mt0-ns"
+    <main class="mt7 center code">
+        <p class="f6 measure-wide mt4 mt0-ns"
             v-for="p in ipsum"
             v-bind:key="p"
             v-html="p">

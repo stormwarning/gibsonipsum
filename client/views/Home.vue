@@ -1,9 +1,14 @@
 <template>
-    <article class="cf ph3 ph5-ns pv5">
-        <header class="fn fl-ns w-50-ns pr4-ns">
-            <h1 class="mb3 mt0 lh-title">Gibson Ipsum</h1>
-            <intro></intro>
+    <article class="">
+        <header class="relative mv5">
+            <figure class="absolute absolute--fill z-0 ma0 cover o-50" style="background-image:url(/gibson-glitch.png)"></figure>
+            <div class="relative">
+                <h1 class="mb3 mt7 white lh-title f-headline">Gibson Ipsum</h1>
+                <intro></intro>
+                <!--<span class="dib mr4 mr5-ns">By @stormwarning</span>-->
+            </div>
         </header>
+        <aside class="controls">—</aside>
         <ipsum></ipsum>
     </article>
 </template>
