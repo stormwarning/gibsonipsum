@@ -1,6 +1,6 @@
 {
   "name": "gibsonipsum",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "description": "A cyberpunk placeholder text generator.",
   "main": "client/index.js",
   "scripts": {
