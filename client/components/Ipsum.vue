@@ -1,6 +1,6 @@
 <template>
-    <main class="mt7 center code">
-        <p class="f6 measure-wide mt4 mt0-ns"
+    <main class="h-100 pv6 code">
+        <p class="f6 measure-wide mt4 mt0-ns center"
             v-for="p in ipsum"
             v-bind:key="p"
             v-html="p">

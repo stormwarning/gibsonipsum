@@ -1,6 +1,6 @@
 <template>
     <main id="app">
-        <nav class="bg-black-40"></nav>
+        <nav class="fixed z-5 w3 vh-100 bg-black-40">—</nav>
         <router-view></router-view>
         <footer class="items-center bg-black-40">
             <a class="link light-gray hover-light-purple dib h1 w1 mb3" href="https://github.com/stormwarning" title="GitHub">
@@ -25,30 +25,30 @@ body {
 }
 
 #app {
-    display: grid;
-    grid-template-columns: 70px 0.5fr 1fr;
-    grid-template-areas: "f n a";
+    /*display: grid;
+    grid-template-columns: 64px 1fr;
+    grid-template-areas: "nav article";*/
     min-height: 100vh;
 }
 
 nav {
-    grid-area: n;
+    grid-area: nav;
 }
 
 article {
     display: grid;
-    grid-template-columns: 2.5fr 3.5fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "h m" "c m";
-    grid-area: a;
-    grid-column-start: n-start;
+    grid-template-columns: 1fr 1fr;
+    /*grid-template-rows: 1fr 1fr;*/
+    grid-template-areas: "header main";
+    grid-area: article;
+    /*grid-column-start: n-start;*/
 
     > header {
-        grid-column: h;
-        grid-row-start: h-start;
-        grid-row-end: c-end;
+        grid-column: header;
+        grid-row-start: header-start;
+        grid-row-end: controls-end;
         background-color: var(--bg);
-        /*background-blend-mode: lighten;*/
+        background-blend-mode: lighten;
 
         > figure {
             background-color: var(--bg);
@@ -56,27 +56,29 @@ article {
             background-blend-mode: luminosity;
         }
 
-        > div { left: 8rem; }
+        /*> div { left: 8rem; }*/
     }
 
-    > aside {
-        grid-area: c;
-    }
+    /*> aside {
+        grid-area: controls;
+    }*/
 
     > main {
-        grid-area: m;
+        grid-area: main;
 
         > p {
             line-height: 2;
         }
+
+        > :last-child { margin-bottom: 0; }
     }
 }
 
 footer {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-end;
-    grid-area: f;
+    /*grid-area: f;*/
     /*width: 100%;*/
 }
 
