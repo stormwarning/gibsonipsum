@@ -1,5 +1,5 @@
 <template>
-    <aside class="controls relative z-1 ph6 mb7">
+    <aside class="controls relative z-1 ph6-ns mb7-ns">
         <form>
             <fieldset class="ba b--transparent ph0 mh0">
                 <legend class="f4 fw6 ph0 mh0">Paragraph Settings</legend>

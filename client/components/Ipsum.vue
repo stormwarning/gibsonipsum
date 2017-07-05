@@ -1,5 +1,5 @@
 <template>
-    <main class="h-100 pv6 code">
+    <main class="h-100 ph2 pb6 ml5 ph0-ns pv6-ns ml0-ns code">
         <p class="f6 measure-wide mt4 mt0-ns center"
             v-for="p in ipsum"
             v-bind:key="p"
