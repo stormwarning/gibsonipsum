@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
-    "babel-core": "^6.16.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^6.2.4",
     "babel-preset-vue-app": "^1.1.1",
     "chalk": "^1.1.3",
