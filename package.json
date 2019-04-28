@@ -1,88 +1,63 @@
 {
-  "name": "gibsonipsum",
-  "version": "0.4.0",
-  "description": "A cyberpunk placeholder text generator.",
-  "main": "client/index.js",
-  "scripts": {
-    "test": "",
-    "build": "webpack --config build/webpack.prod.js",
-    "dev": "node build/server.js",
-    "lint": "xo **/client/**/*.{vue,js} !node_modules/**"
-  },
-  "author": "Jeff <rustyangel@gmail.com>",
-  "license": "MIT",
-  "now": {
-    "alias": "gibsonipsum"
-  },
-  "xo": {
-    "extends": "./.eslintrc",
-    "esnext": true,
-    "envs": [
-      "browser"
-    ]
-  },
-  "babel": {
-    "presets": [
-      [
-        "vue-app",
-        {
-          "useBuiltIns": true
+    "private": true,
+    "name": "gibsonipsum",
+    "description": "A cyberpunk placeholder text generator.",
+    "author": "Jeff <rustyangel@gmail.com>",
+    "version": "0.4.0",
+    "scripts": {
+        "build": "nuxt build",
+        "deploy": "np && release && npm run generate && now dist/ -p --name gibsonipsum && now alias",
+        "dev": "nuxt",
+        "generate": "nuxt generate",
+        "lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
+        "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
+        "start": "nuxt start"
+    },
+    "dependencies": {
+        "@nuxtjs/google-analytics": "2.0.x",
+        "@nuxtjs/markdownit": "1.2.x",
+        "@nuxtjs/pwa": "2.6.x",
+        "chroma-js": "2.0.x",
+        "nuxt": "2.6.x"
+    },
+    "devDependencies": {
+        "@zazen/eslint-config": "1.0.x",
+        "@zazen/stylelint-config": "1.0.x",
+        "eslint": "5.12.x",
+        "eslint-plugin-vue": "5.1.x",
+        "husky": "1.3.x",
+        "lint-staged": "8.1.x",
+        "postcss-advanced-variables": "3.0.x",
+        "stylelint": "9.10.x"
+    },
+    "engines": {
+        "node": ">8.x"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
         }
-      ]
-    ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {},
-      "postcss-nested": {}
+    },
+    "lint-staged": {
+        "*.{js,vue}": [
+            "prettier-eslint --write",
+            "git add"
+        ],
+        "*.{css,vue}": [
+            "stylelint --fix",
+            "git add"
+        ]
+    },
+    "now": {
+        "alias": "gibsonipsum"
+    },
+    "prettier": {
+        "arrowParens": "always",
+        "htmlWhitespaceSensitivity": "ignore",
+        "proseWrap": "never",
+        "semi": false,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "all"
     }
-  },
-  "browserslist": [
-    "last 2 versions",
-    "ie > 8"
-  ],
-  "dependencies": {
-    "babel-runtime": "^6.18.0",
-    "promise-polyfill": "^6.0.2",
-    "tachyons": "^4.7.4",
-    "vue": "^2.2.0",
-    "vue-router": "^2.0.0",
-    "vuex": "^2.0.0",
-    "vuex-router-sync": "^4.0.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^6.4.0",
-    "babel-core": "^6.16.0",
-    "babel-loader": "^6.2.4",
-    "babel-preset-vue-app": "^1.1.1",
-    "chalk": "^1.1.3",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "^2.0.0",
-    "css-loader": "^0.23.1",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-config-vue": "latest",
-    "eslint-plugin-html": "^3.0.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^5.0.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "eslint-plugin-vue": "latest",
-    "express": "^4.14.0",
-    "extract-text-webpack-plugin": "^2.0.0-rc.3",
-    "file-loader": "^0.9.0",
-    "friendly-errors-webpack-plugin": "^1.1.2",
-    "html-webpack-plugin": "^2.22.0",
-    "offline-plugin": "^4.5.3",
-    "postcss-loader": "^0.9.1",
-    "postcss-nested": "^1.0.0",
-    "raw-loader": "^0.5.1",
-    "rimraf": "^2.6.1",
-    "style-loader": "^0.13.1",
-    "vue-loader": "^11.0.0",
-    "vue-template-compiler": "^2.2.0",
-    "webpack": "2.2.0",
-    "webpack-dev-middleware": "^1.8.1",
-    "webpack-hot-middleware": "^2.12.2",
-    "xo": "^0.18.0"
-  }
 }
