@@ -1,37 +1,32 @@
 <template>
     <main class="h-100 ph2 pb6 ml5 ph0-ns pv6-ns ml0-ns code">
-        <p class="f6 measure-wide mt4 mt0-ns center"
+        <p
             v-for="p in ipsum"
-            v-bind:key="p"
-            v-html="p">
-        </p>
+            :key="p"
+            class="f6 measure-wide mt4 mt0-ns center"
+            v-html="p"
+        ></p>
     </main>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-
 export default {
-    data () {
-        return {
-
-
-        }
+    data() {
+        return {}
     },
     computed: {
         ...mapGetters({
             wordlist: 'getWordList',
         }),
-        ipsum () {
+        ipsum() {
             return this.buildIpsum()
-        }
+        },
     },
     methods: {
-        ...mapActions([
-            'fetchWords',
-        ]),
-        buildIpsum () {
+        ...mapActions(['fetchWords']),
+        buildIpsum() {
             let numParagraphs = this.$store.state.paragraphs
             let theLipsum = []
 
@@ -41,8 +36,11 @@ export default {
 
             return theLipsum
         },
-        generateParagraph () {
-            let numSentences = Math.floor(Math.random() * (this.$store.state.sentences - 1 + 1)) + 1
+        generateParagraph() {
+            let numSentences =
+                Math.floor(
+                    Math.random() * (this.$store.state.sentences - 1 + 1),
+                ) + 1
             let p = ''
 
             for (var i = 0; i < numSentences; i++) {
@@ -51,7 +49,7 @@ export default {
 
             return p
         },
-        generateSentence () {
+        generateSentence() {
             let words = this.wordlist
             let sentenceLength = Math.floor(Math.random() * 10) + 7
             let s = ''
@@ -62,8 +60,13 @@ export default {
                     let wordObj = words[w]
                     let word = wordObj.fields.word
 
-                    if (wordObj.fields.tags && wordObj.fields.tags.includes('acronym')) {
-                        word = `<abbr class="c2sc" title="${wordObj.fields.def}">${wordObj.fields.word}</abbr>`
+                    if (
+                        wordObj.fields.tags &&
+                        wordObj.fields.tags.includes('acronym')
+                    ) {
+                        word = `<abbr class="c2sc" title="${
+                            wordObj.fields.def
+                        }">${wordObj.fields.word}</abbr>`
                     }
 
                     if (i === 0) {
@@ -87,7 +90,7 @@ export default {
             return s
         },
     },
-    mounted () {
+    mounted() {
         this.fetchWords()
     },
 }
