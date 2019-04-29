@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 
 let wordlist = []
 let skip = 0
 
-function getAllWords (endpoint, callback) {
+function getAllWords(endpoint, callback) {
     const getWords = fetch(endpoint)
 
     getWords
-        .then(data => data.json())
+        .then((data) => data.json())
         .then((data) => {
             for (const i in data.items) {
                 wordlist.push(data.items[i])
@@ -25,48 +24,52 @@ function getAllWords (endpoint, callback) {
         })
 }
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
-const state = {
+export const state = () => ({
     paragraphs: 3,
     sentences: 5,
     l33t: false,
     nihongo: false,
     words: [],
     randomAdjective: 'cyberpunk',
+})
+
+export const getters = {
+    getParagraphs: (state) => state.paragraphs,
+    getSentences: (state) => state.sentences,
+    getWordList: (state) => state.words,
+    getAdjective: (state) => state.randomAdjective,
 }
 
-const getters = {
-    getParagraphs: state => state.paragraphs,
-    getSentences: state => state.sentences,
-    getWordList: state => state.words,
-    getAdjective: state => state.randomAdjective,
-}
-
-const mutations = {
-    setParagraphs (state, number) {
+export const mutations = {
+    setParagraphs(state, number) {
         state.paragraphs = number
     },
-    setSentences (state, number) {
+    setSentences(state, number) {
         state.sentences = number
     },
-    setWordList (state, wordData) {
+    setWordList(state, wordData) {
         state.words = wordData
     },
-    setAdjective (state, adjective) {
+    setAdjective(state, adjective) {
         state.randomAdjective = adjective
     },
 }
 
-const actions = {
-    fetchWords ({ state, commit }) {
-        let dataURL = 'https://cdn.contentful.com/spaces/8j8wvx07a2uv/entries?access_token=f582803bba0fe0513deecb0f9edf8e0e0d31c631247ccc64d7d99087e7a75e85'
+export const actions = {
+    fetchWords({ state, commit }) {
+        let dataURL =
+            'https://cdn.contentful.com/spaces/8j8wvx07a2uv/entries?access_token=f582803bba0fe0513deecb0f9edf8e0e0d31c631247ccc64d7d99087e7a75e85'
 
         getAllWords(dataURL, (wordlist) => {
             commit('setWordList', wordlist)
 
             let filteredWords = wordlist.filter((word) => {
-                return word.fields.type === 'adjective' && word.fields.tags.includes('compound')
+                return (
+                    word.fields.type === 'adjective' &&
+                    word.fields.tags.includes('compound')
+                )
             })
             let w = Math.floor(Math.random() * filteredWords.length)
             let adjective = filteredWords[w].fields.word
@@ -76,11 +79,11 @@ const actions = {
     },
 }
 
-const store = new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    actions
-})
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions,
+// })
 
-export default store
+// export default store
