@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import Ipsum from 'components/Ipsum'
-import Intro from 'components/Intro'
-import Controls from 'components/Controls'
+import Ipsum from '~/components/Ipsum'
+import Intro from '~/components/Intro'
+import Controls from '~/components/Controls'
 
 export default {
     components: {

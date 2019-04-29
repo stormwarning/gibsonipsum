@@ -36,7 +36,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link white hover-light-purple dib h1 w1 mb5"
+                    class="link white hover-light-purple dib h1 w1"
                     href="https://twitter.com/stormwarning"
                     title="Twitter"
                 >
@@ -57,7 +57,7 @@
                 </a>
             </footer>
         </nav>
-        <router-view></router-view>
+        <nuxt></nuxt>
     </main>
 </template>
 
@@ -96,7 +96,7 @@ article {
         /* grid-column-start: n-start; */
     }
 
-    > header {
+    & > header {
         background-color: var(--bg);
         background-blend-mode: lighten;
 
@@ -106,7 +106,7 @@ article {
             grid-column: header;
         }
 
-        > figure {
+        & > figure {
             background-color: var(--bg);
             background-blend-mode: luminosity;
             mix-blend-mode: lighten;
@@ -119,16 +119,16 @@ article {
         grid-area: controls;
     } */
 
-    > main {
+    & > main {
         @media (min-width: 480px) {
             grid-area: main;
         }
 
-        > p {
+        & > p {
             line-height: 2;
         }
 
-        > :last-child {
+        & > :last-child {
             margin-bottom: 0;
         }
     }
