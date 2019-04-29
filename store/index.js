@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vue from 'vue'
+// import Vuex from 'vuex'
 
 let wordlist = []
 let skip = 0
@@ -24,25 +24,25 @@ function getAllWords(endpoint, callback) {
         })
 }
 
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
-const state = {
+export const state = () => ({
     paragraphs: 3,
     sentences: 5,
     l33t: false,
     nihongo: false,
     words: [],
     randomAdjective: 'cyberpunk',
-}
+})
 
-const getters = {
+export const getters = {
     getParagraphs: (state) => state.paragraphs,
     getSentences: (state) => state.sentences,
     getWordList: (state) => state.words,
     getAdjective: (state) => state.randomAdjective,
 }
 
-const mutations = {
+export const mutations = {
     setParagraphs(state, number) {
         state.paragraphs = number
     },
@@ -57,7 +57,7 @@ const mutations = {
     },
 }
 
-const actions = {
+export const actions = {
     fetchWords({ state, commit }) {
         let dataURL =
             'https://cdn.contentful.com/spaces/8j8wvx07a2uv/entries?access_token=f582803bba0fe0513deecb0f9edf8e0e0d31c631247ccc64d7d99087e7a75e85'
@@ -79,11 +79,11 @@ const actions = {
     },
 }
 
-const store = new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    actions,
-})
+// const store = new Vuex.Store({
+//     state,
+//     getters,
+//     mutations,
+//     actions,
+// })
 
-export default store
+// export default store
