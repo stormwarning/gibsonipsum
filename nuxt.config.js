@@ -15,7 +15,7 @@ export default {
       Headers of the page
      */
     head: {
-        htmlAttrs: { class: 'bg-light-gray' },
+        htmlAttrs: { class: 'sans-serif bg-light-gray' },
         title: SITE_TITLE,
         meta: [
             { charset: 'utf-8' },
@@ -38,18 +38,18 @@ export default {
                 content: SITE_DESCRIPTION,
             },
             { name: 'twitter:creator', content: '@stormwarning' },
-            {
-                name: 'twitter:image:src',
-                content: 'https://gibsonipsum.now.sh/icon-1024.png',
-            },
+            // {
+            //     name: 'twitter:image:src',
+            //     content: 'https://gibsonipsum.now.sh/icon-1024.png',
+            // },
 
             { property: 'og:title', content: SITE_TITLE },
             { property: 'og:type', content: 'website' },
             { property: 'og:url', content: 'https://gibsonipsum.now.sh/' },
-            {
-                property: 'og:image',
-                content: 'https://gibsonipsum.now.sh/icon-1024.png',
-            },
+            // {
+            //     property: 'og:image',
+            //     content: 'https://gibsonipsum.now.sh/icon-1024.png',
+            // },
             {
                 property: 'og:description',
                 content: SITE_DESCRIPTION,
@@ -104,5 +104,9 @@ export default {
 
     manifest: {
         name: SITE_TITLE,
+    },
+
+    meta: {
+        theme_color: '#16191b',
     },
 }

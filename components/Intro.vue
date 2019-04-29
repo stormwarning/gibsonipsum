@@ -9,7 +9,6 @@
         >
             @stormwarning
         </a>
-        .
     </span>
 </template>
 
