@@ -23,7 +23,7 @@
     "devDependencies": {
         "@zazen/eslint-config": "1.0.x",
         "@zazen/stylelint-config": "1.0.x",
-        "eslint": "5.12.x",
+        "eslint": "5.16.x",
         "eslint-plugin-vue": "5.1.x",
         "husky": "1.3.x",
         "lint-staged": "8.1.x",
