@@ -1,9 +1,9 @@
 <template>
     <main id="app">
         <nav
-            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv4 bg-black-40"
+            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
-            <a class="link white hover-gibson dib w1" href="/">
+            <a class="link white hover-gibson dib w2 h2 pa2" href="/">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 16 16"
@@ -16,7 +16,7 @@
             </a>
             <footer class="flex flex-column items-center bg-black-40">
                 <a
-                    class="link white hover-gibson dib h1 w1 mb3"
+                    class="link white hover-gibson dib w2 h2 pa2"
                     href="https://github.com/stormwarning"
                     title="GitHub"
                 >
@@ -35,7 +35,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link white hover-gibson dib h1 w1"
+                    class="link white hover-gibson dib w2 h2 pa2 mt3"
                     href="https://twitter.com/stormwarning"
                     title="Twitter"
                 >
