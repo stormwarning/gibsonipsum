@@ -48,9 +48,6 @@
             "git add"
         ]
     },
-    "now": {
-        "alias": "gibsonipsum"
-    },
     "prettier": {
         "arrowParens": "always",
         "htmlWhitespaceSensitivity": "ignore",
