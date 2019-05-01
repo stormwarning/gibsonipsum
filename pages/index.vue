@@ -5,10 +5,12 @@
         >
             <figure
                 class="absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
-                style="background-image:url(/gibson-glitch.png);"
+                style="background-image: url(/gibson-glitch.png);"
             ></figure>
             <div class="relative pl5-ns">
-                <h1 class="mb3 mt6 white lh-solid f-headline-ns tr">
+                <h1
+                    class="mb3 mt6 white lh-solid f-headline-ns tracked-tight tr"
+                >
                     Gibson Ipsum
                 </h1>
                 <intro></intro>

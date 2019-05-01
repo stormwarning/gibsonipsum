@@ -3,10 +3,7 @@
         A {{ adjective }} placeholder text generator.
         <br />
         By
-        <a
-            class="link white-70 hover-light-purple"
-            href="http://tidaltheory.co/"
-        >
+        <a class="link white-70 hover-gibson" href="http://tidaltheory.co/">
             @stormwarning
         </a>
     </span>
