@@ -1,23 +1,22 @@
 <template>
     <main id="app">
         <nav
-            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv4 bg-black-40"
+            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
-            <a class="link white hover-light-purple dib w1" href="/">
+            <a class="link white hover-gibson dib w2 h2 pa2" href="/">
                 <svg
-                    id="logo"
-                    fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 234 270.2"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
                 >
                     <path
-                        d="M40.6 44.1L0 67.5v135.1l117 67.6 117-67.6v-46.9zM234 113V67.5L117 0 77.6 22.7z"
+                        d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
                     />
                 </svg>
             </a>
             <footer class="flex flex-column items-center bg-black-40">
                 <a
-                    class="link white hover-light-purple dib h1 w1 mb3"
+                    class="link white hover-gibson dib w2 h2 pa2"
                     href="https://github.com/stormwarning"
                     title="GitHub"
                 >
@@ -36,7 +35,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link white hover-light-purple dib h1 w1"
+                    class="link white hover-gibson dib w2 h2 pa2 mt3"
                     href="https://twitter.com/stormwarning"
                     title="Twitter"
                 >
@@ -62,16 +61,6 @@
 </template>
 
 <style>
-:root {
-    --bg: #16191b;
-    --fg: #e2e6e8;
-}
-
-body {
-    color: var(--fg);
-    background-color: var(--bg);
-}
-
 /* stylelint-disable-next-line selector-max-id */
 #app {
     /* display: grid;

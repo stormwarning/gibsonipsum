@@ -1,1 +1,23 @@
-/* Custom styles here. */
+:root {
+    --bg: #16191b;
+    --fg: #e2e6e8;
+    --blue: #2cccff;
+}
+
+::selection {
+    color: var(--bg);
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+body {
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+.gibson {
+    color: var(--blue);
+}
+.hover-gibson:hover,
+.hover-gibson:focus {
+    color: var(--blue);
+}
