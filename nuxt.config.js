@@ -17,57 +17,19 @@ export default {
     head: {
         htmlAttrs: { class: 'sans-serif bg-light-gray' },
         title: SITE_TITLE,
-        meta: [
-            { charset: 'utf-8' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            {
-                hid: 'description',
-                meta: 'description',
-                content: SITE_DESCRIPTION,
-            },
-
-            { name: 'apple-mobile-web-app-title', content: SITE_TITLE },
-
-            { name: 'twitter:card', content: 'summary' },
-            { name: 'twitter:title', content: SITE_TITLE },
-            {
-                name: 'twitter:description',
-                content: SITE_DESCRIPTION,
-            },
-            { name: 'twitter:creator', content: '@stormwarning' },
-            // {
-            //     name: 'twitter:image:src',
-            //     content: 'https://gibsonipsum.now.sh/icon-1024.png',
-            // },
-
-            { property: 'og:title', content: SITE_TITLE },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:url', content: 'https://gibsonipsum.now.sh/' },
-            // {
-            //     property: 'og:image',
-            //     content: 'https://gibsonipsum.now.sh/icon-1024.png',
-            // },
-            {
-                property: 'og:description',
-                content: SITE_DESCRIPTION,
-            },
-            { property: 'og:site_name', content: SITE_TITLE },
-        ],
+        description: SITE_DESCRIPTION,
+        meta: [],
         link: [
+            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
             {
                 rel: 'mask-icon',
                 href: '/safari-pinned-tab.svg',
-                color: '#16191b',
+                color: '#2cccff',
             },
             {
                 rel: 'stylesheet',
                 href: 'https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css',
             },
-
-            { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
         ],
     },
 
@@ -104,9 +66,13 @@ export default {
 
     manifest: {
         name: SITE_TITLE,
+        short_name: SITE_TITLE,
     },
 
     meta: {
         theme_color: '#16191b',
+        ogHost: 'https://gibsonipsum.now.sh',
+        twitterCard: 'summary',
+        twitterCreator: '@stormwarning',
     },
 }
