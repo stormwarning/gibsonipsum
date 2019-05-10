@@ -35,7 +35,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link white hover-gibson dib w2 h2 pa2 mt3"
+                    class="link white hover-gibson dib w2 h2 pa2 mt2"
                     href="https://twitter.com/stormwarning"
                     title="Twitter"
                 >
