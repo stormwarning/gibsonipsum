@@ -1,6 +1,3 @@
-// import Vue from 'vue'
-// import Vuex from 'vuex'
-
 let wordlist = []
 let skip = 0
 
@@ -24,8 +21,6 @@ function getAllWords(endpoint, callback) {
         })
 }
 
-// Vue.use(Vuex)
-
 export const state = () => ({
     paragraphs: 3,
     sentences: 5,
@@ -40,6 +35,7 @@ export const getters = {
     getSentences: (state) => state.sentences,
     getWordList: (state) => state.words,
     getAdjective: (state) => state.randomAdjective,
+    getNihongo: (state) => state.nihongo,
 }
 
 export const mutations = {
@@ -54,6 +50,9 @@ export const mutations = {
     },
     setAdjective(state, adjective) {
         state.randomAdjective = adjective
+    },
+    setNihongo(state, nihongo) {
+        state.nihongo = nihongo
     },
 }
 
@@ -78,12 +77,3 @@ export const actions = {
         })
     },
 }
-
-// const store = new Vuex.Store({
-//     state,
-//     getters,
-//     mutations,
-//     actions,
-// })
-
-// export default store

@@ -15,6 +15,7 @@
                     type="number"
                     min="1"
                 />
+                <input v-model="nihongo" type="checkbox" />
             </fieldset>
         </form>
     </aside>
@@ -41,10 +42,18 @@ export default {
                 this.$store.commit('setSentences', value)
             },
         },
+        nihongo: {
+            get() {
+                return this.$store.state.nihongo
+            },
+            set(value) {
+                this.$store.commit('setNihongo', value)
+            },
+        },
     },
 
     methods: {
-        ...mapMutations(['setParagraphs', 'setSentences']),
+        ...mapMutations(['setParagraphs', 'setSentences', 'setNihongo']),
     },
 }
 </script>
