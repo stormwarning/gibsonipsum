@@ -1,9 +1,22 @@
 <template>
-    <span v-html="wordText"></span>
+    <abbr v-if="isAcronym" class="c2sc" :title="wordDef">
+        {{ formattedWord }}
+    </abbr>
+    <i
+        v-else-if="isJapanese"
+        class="nowrap fs-normal"
+        lang="jp"
+        :title="wordText"
+    >
+        {{ formattedWord }}
+    </i>
+    <span v-else>{{ formattedWord }}</span>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+
+import TextScramble from '../utils/scramble'
 
 export default {
     props: {
@@ -24,7 +37,17 @@ export default {
     },
 
     data() {
-        return {}
+        return {
+            wordText: this.word.fields.word,
+            wordDef: this.word.fields.def,
+            isAcronym:
+                this.word.fields.tags &&
+                this.word.fields.tags.includes('acronym'),
+            isJapanese:
+                this.word.fields.def &&
+                this.word.fields.tags &&
+                this.word.fields.tags.includes('foreign'),
+        }
     },
 
     computed: {
@@ -32,38 +55,35 @@ export default {
             shouldTranslate: 'getNihongo',
         }),
 
-        wordText() {
-            let text = this.word.fields.word
+        formattedWord() {
+            let wordText = this.wordText
 
             if (this.startsSentence) {
-                text = text.charAt(0).toUpperCase() + text.slice(1)
-            }
-
-            if (
-                this.word.fields.tags &&
-                this.word.fields.tags.includes('acronym')
-            ) {
-                text = `<abbr class="c2sc" title="${this.word.fields.def}">${
-                    this.word.fields.word
-                }</abbr>`
-            }
-
-            if (
-                this.shouldTranslate &&
-                this.word.fields.tags &&
-                this.word.fields.tags.includes('foreign')
-            ) {
-                text = `<i class="nowrap fs-normal" lang="jp" title="${
-                    this.word.fields.word
-                }">${this.word.fields.def}</i>`
+                wordText = wordText.charAt(0).toUpperCase() + wordText.slice(1)
             }
 
             if (this.endsSentence) {
-                text = `${text}.`
+                wordText = `${wordText}.`
             }
 
-            return `${text} `
+            return `${wordText} `
         },
+    },
+
+    watch: {
+        shouldTranslate: function() {
+            if (this.isJapanese) {
+                if (this.shouldTranslate) {
+                    this.scrambler.setText(this.wordDef)
+                } else {
+                    this.scrambler.setText(this.wordText)
+                }
+            }
+        },
+    },
+
+    mounted() {
+        this.scrambler = new TextScramble(this.$el)
     },
 }
 </script>
