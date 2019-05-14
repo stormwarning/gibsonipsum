@@ -1,7 +1,7 @@
 <template>
     <main class="h-100 ph2 pb6 ml5 ph0-ns pv6-ns ml0-ns code">
         <p
-            v-for="(paragraph, pIdx) in paragraphContent"
+            v-for="(paragraph, pIdx) in paragraphs"
             :key="pIdx"
             class="f6 measure-wide mt4 mt0-ns center"
         >
@@ -27,41 +27,37 @@ export default {
     components: {
         Word,
     },
+
     data() {
         return {}
     },
+
     computed: {
         ...mapGetters({
             wordlist: 'getWordList',
             paragraphCount: 'getParagraphs',
             paragraphLength: 'getSentences',
         }),
-        ipsum() {
-            return this.buildIpsum()
-        },
-        paragraphContent() {
-            let theLipsum = []
+
+        paragraphs() {
+            let paragraphs = []
 
             for (var q = 0; q < this.paragraphCount; q++) {
-                theLipsum.push(this.buildParagraphs())
+                paragraphs.push(this.buildParagraph())
             }
 
-            return theLipsum
+            return paragraphs
         },
     },
+
+    mounted() {
+        this.fetchWords()
+    },
+
     methods: {
         ...mapActions(['fetchWords']),
-        buildIpsum() {
-            let numParagraphs = this.$store.state.paragraphs
-            let theLipsum = []
 
-            for (var q = 0; q < numParagraphs; q++) {
-                theLipsum.push(this.generateParagraph())
-            }
-
-            return theLipsum
-        },
-        buildParagraphs() {
+        buildParagraph() {
             let numSentences =
                 Math.floor(Math.random() * (this.paragraphLength - 1 + 1)) + 1
             let theParagraph = []
@@ -72,6 +68,7 @@ export default {
 
             return theParagraph
         },
+
         buildSentence() {
             let words = this.wordlist
             let sentenceLength = Math.floor(Math.random() * 10) + 7
@@ -88,62 +85,6 @@ export default {
 
             return theSentence
         },
-        generateParagraph() {
-            let numSentences =
-                Math.floor(
-                    Math.random() * (this.$store.state.sentences - 1 + 1),
-                ) + 1
-            let p = ''
-
-            for (var i = 0; i < numSentences; i++) {
-                p += this.generateSentence()
-            }
-
-            return p
-        },
-        generateSentence() {
-            let words = this.wordlist
-            let sentenceLength = Math.floor(Math.random() * 10) + 7
-            let s = ''
-
-            if (words.length) {
-                for (var i = 0; i <= sentenceLength; i++) {
-                    const w = Math.floor(Math.random() * words.length)
-                    let wordObj = words[w]
-                    let word = wordObj.fields.word
-
-                    if (
-                        wordObj.fields.tags &&
-                        wordObj.fields.tags.includes('acronym')
-                    ) {
-                        word = `<abbr class="c2sc" title="${
-                            wordObj.fields.def
-                        }">${wordObj.fields.word}</abbr>`
-                    }
-
-                    if (i === 0) {
-                        // Capitalise the first word.
-                        s += word.charAt(0).toUpperCase() + word.slice(1) + ' '
-                    } else if (i === sentenceLength) {
-                        // Put a period & space after the last word.
-                        s += word + '. '
-                    } else {
-                        // Testing output. Re-enable once controls are added.
-                        // if (wordObj.fields.tags && wordObj.fields.tags.includes('foreign')) {
-                        //     word = `<i class="nowrap fs-normal" lang="jp" title="${wordObj.fields.word}">${wordObj.fields.def}</i>`
-                        // }
-
-                        // Add a space between words.
-                        s += word + ' '
-                    }
-                }
-            }
-
-            return s
-        },
-    },
-    mounted() {
-        this.fetchWords()
     },
 }
 </script>

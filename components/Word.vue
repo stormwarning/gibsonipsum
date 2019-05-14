@@ -50,13 +50,9 @@ export default {
         }),
 
         formattedWord() {
-            let wordText = this.wordText
-
-            if (this.startsSentence) {
-                wordText = wordText.charAt(0).toUpperCase() + wordText.slice(1)
-            }
-
-            return `${wordText}`
+            return this.startsSentence
+                ? this.wordText.charAt(0).toUpperCase() + this.wordText.slice(1)
+                : this.wordText
         },
     },
 
@@ -66,7 +62,7 @@ export default {
                 if (this.shouldTranslate) {
                     this.scrambler.setText(this.wordDef)
                 } else {
-                    this.scrambler.setText(this.wordText)
+                    this.scrambler.setText(this.formattedWord)
                 }
             }
         },
