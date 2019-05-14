@@ -50,7 +50,7 @@
     },
     "prettier": {
         "arrowParens": "always",
-        "htmlWhitespaceSensitivity": "ignore",
+        "htmlWhitespaceSensitivity": "strict",
         "proseWrap": "never",
         "semi": false,
         "singleQuote": true,

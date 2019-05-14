@@ -6,21 +6,15 @@
             class="f6 measure-wide mt4 mt0-ns center"
         >
             <template v-for="(sentence, sIdx) in paragraph">
-                <word
-                    v-for="(word, wIdx) in sentence"
-                    :key="`${sIdx} ${wIdx}`"
-                    :word="word"
-                    :starts-sentence="wIdx === 0"
-                    :ends-sentence="wIdx === sentence.length - 1"
-                ></word>
+                <template v-for="(word, wIdx) in sentence">
+                    <word
+                        :key="`${sIdx} ${wIdx}`"
+                        :word="word"
+                        :starts-sentence="wIdx === 0"
+                    />{{ wIdx === sentence.length - 1 ? '. ' : ' ' }}
+                </template>
             </template>
         </p>
-        <!-- <p
-            v-for="p in ipsum"
-            :key="p"
-            class="f6 measure-wide mt4 mt0-ns center"
-            v-html="p"
-        ></p> -->
     </main>
 </template>
 

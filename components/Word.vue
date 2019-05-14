@@ -1,15 +1,14 @@
 <template>
-    <abbr v-if="isAcronym" class="c2sc" :title="wordDef">
-        {{ formattedWord }}
-    </abbr>
+    <abbr v-if="isAcronym" class="c2sc" :title="wordDef">{{
+        formattedWord
+    }}</abbr>
     <i
         v-else-if="isJapanese"
         class="nowrap fs-normal"
         lang="jp"
         :title="wordText"
+        >{{ formattedWord }}</i
     >
-        {{ formattedWord }}
-    </i>
     <span v-else>{{ formattedWord }}</span>
 </template>
 
@@ -26,11 +25,6 @@ export default {
         },
 
         startsSentence: {
-            type: Boolean,
-            default: false,
-        },
-
-        endsSentence: {
             type: Boolean,
             default: false,
         },
@@ -62,11 +56,7 @@ export default {
                 wordText = wordText.charAt(0).toUpperCase() + wordText.slice(1)
             }
 
-            if (this.endsSentence) {
-                wordText = `${wordText}.`
-            }
-
-            return `${wordText} `
+            return `${wordText}`
         },
     },
 
