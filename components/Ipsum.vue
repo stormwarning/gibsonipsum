@@ -43,7 +43,7 @@ export default {
             let paragraphs = []
 
             for (var q = 0; q < this.paragraphCount; q++) {
-                paragraphs.push(this.buildParagraph())
+                paragraphs.push(this.buildParagraph(this.paragraphLength))
             }
 
             return paragraphs
@@ -57,9 +57,11 @@ export default {
     methods: {
         ...mapActions(['fetchWords']),
 
-        buildParagraph() {
-            let numSentences =
-                Math.floor(Math.random() * (this.paragraphLength - 1 + 1)) + 1
+        buildParagraph(pLength) {
+            let numSentences = Math.max(
+                2,
+                Math.floor(Math.random() * pLength + 1),
+            )
             let theParagraph = []
 
             for (var i = 0; i < numSentences; i++) {
@@ -71,12 +73,12 @@ export default {
 
         buildSentence() {
             let words = this.wordlist
-            let sentenceLength = Math.floor(Math.random() * 10) + 7
+            let sentenceLength = Math.floor(Math.random() * 10 + 6)
             let theSentence = []
 
             if (words.length) {
                 for (var i = 0; i < sentenceLength; i++) {
-                    const w = Math.floor(Math.random() * words.length)
+                    let w = Math.floor(Math.random() * words.length)
                     let wordObj = words[w]
 
                     theSentence.push(wordObj)
