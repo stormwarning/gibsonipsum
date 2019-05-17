@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import Word from '~/components/Word'
 
@@ -50,13 +50,7 @@ export default {
         },
     },
 
-    mounted() {
-        this.fetchWords()
-    },
-
     methods: {
-        ...mapActions(['fetchWords']),
-
         buildParagraph(pLength) {
             let numSentences = Math.max(
                 2,
