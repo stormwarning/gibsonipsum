@@ -6,11 +6,12 @@
     "version": "1.2.0",
     "scripts": {
         "build": "nuxt build",
-        "deploy": "np && release && npm run generate && now dist/ -p --name gibsonipsum && now alias",
+        "deploy": "np --no-release-draft && release",
         "dev": "nuxt",
         "generate": "nuxt generate",
         "lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
         "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
+        "now-build": "npm run generate",
         "start": "nuxt start"
     },
     "dependencies": {

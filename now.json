@@ -1,4 +1,7 @@
 {
+  "version": 2,
   "name": "gibsonipsum",
-  "alias": "gibsonipsum"
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build" }
+  ]
 }
