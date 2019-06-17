@@ -7,13 +7,22 @@
                 class="dn db-ns absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
                 style="background-image: url(/gibson-glitch.png);"
             ></figure>
-            <div class="relative pl5-ns">
+            <div class="relative pl5-ns overflow-hidden">
                 <h1 class="mv0 nr2 white lh-solid f-72 f-6-ns tracked-tight tr">
                     Gibson<br />— Ipsum
                 </h1>
+                <span class="version-tag absolute db f6">——{{ version }}</span>
                 <intro></intro>
             </div>
-            <controls></controls>
+            <details class="dn-ns">
+                <summary class="pointer outline-0">
+                    Settings
+                </summary>
+                <div class="relative pa3 pa4-ns pt0-ns pr3-ns nt3 mr4 mr5-ns">
+                    <controls></controls>
+                </div>
+            </details>
+            <controls class="dn db-ns"></controls>
         </header>
         <transition name="fade" mode="out-in">
             <ipsum v-if="wordsLoaded"></ipsum>
@@ -28,7 +37,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 import Ipsum from '~/components/Ipsum'
 import Intro from '~/components/Intro'
@@ -42,6 +51,9 @@ export default {
     },
 
     computed: {
+        ...mapState({
+            version: (state) => state.version,
+        }),
         ...mapGetters({
             wordsLoaded: 'getWordsLoaded',
         }),
@@ -56,3 +68,9 @@ export default {
     },
 }
 </script>
+
+<style lang="postcss" scoped>
+.version-tag {
+    top: 4rem;
+}
+</style>

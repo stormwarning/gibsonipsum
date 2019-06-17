@@ -2,7 +2,7 @@
     <aside class="controls relative z-1 ph6-ns mb7-ns">
         <form>
             <fieldset class="ba b--transparent ph0 mh0">
-                <legend class="f4 fw6 ph0 mh0">Paragraph Settings</legend>
+                <!-- <legend class="f4 fw6 ph0 mh0">Paragraph Settings</legend> -->
                 <input
                     v-model="paragraphs"
                     class="input-reset w3 pa2 ba"
