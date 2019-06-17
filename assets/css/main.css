@@ -33,6 +33,16 @@ body {
     color: var(--blue);
 }
 
+.mono {
+    /* stylelint-disable-next-line value-list-comma-newline-after */
+    font-family: SFMono-Regular,
+ Consolas,
+ 'Liberation Mono',
+ Menlo,
+ Courier,
+        monospace;
+}
+
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 500ms ease-in-out;
