@@ -1,3 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+
 :root {
     --bg: #16191b;
     --fg: #e2e6e8;
@@ -9,9 +11,17 @@
     background-color: rgba(255, 255, 255, 0.99);
 }
 
+html {
+    font-family: 'Inter', sans-serif;
+}
+
 body {
     color: var(--fg);
     background-color: var(--bg);
+}
+
+.f-72 {
+    font-size: 4.5rem;
 }
 
 .gibson {
