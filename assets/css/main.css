@@ -18,6 +18,7 @@ html {
 body {
     color: var(--fg);
     background-color: var(--bg);
+    overscroll-behavior: none;
 }
 
 .f-72 {
