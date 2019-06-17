@@ -22,6 +22,7 @@ function getAllWords(endpoint, callback) {
 }
 
 export const state = () => ({
+    version: process.env.VERSION,
     paragraphs: 3,
     sentences: 5,
     l33t: false,
