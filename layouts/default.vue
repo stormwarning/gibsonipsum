@@ -3,17 +3,30 @@
         <nav
             class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
-            <a class="link white hover-gibson dib w2 h2 pa2" href="/">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                >
-                    <path
-                        d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
-                    />
-                </svg>
-            </a>
+            <div class="flex flex-column items-center">
+                <a class="link white hover-gibson dib w2 h2 pa2" href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
+                        />
+                    </svg>
+                </a>
+                <a class="link white hover-gibson dib w2 h2 pa2 mt6" href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
+                        />
+                    </svg>
+                </a>
+            </div>
             <footer class="flex flex-column items-center bg-black-40">
                 <a
                     class="link white hover-gibson dib w2 h2 pa2"

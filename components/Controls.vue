@@ -1,8 +1,7 @@
 <template>
-    <aside class="controls relative z-1 ph6-ns mb7-ns">
+    <aside class="controls pa4 ph6-ns mb7-ns">
         <form>
-            <fieldset class="ba b--transparent ph0 mh0">
-                <!-- <legend class="f4 fw6 ph0 mh0">Paragraph Settings</legend> -->
+            <fieldset class="ba b--transparent pa0 mh0">
                 <input
                     v-model="paragraphs"
                     class="input-reset w3 pa2 ba"
@@ -57,3 +56,9 @@ export default {
     },
 }
 </script>
+
+<style lang="postcss">
+.controls {
+    background-color: rgba(226, 230, 232, 0.05);
+}
+</style>
