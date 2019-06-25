@@ -1,21 +1,36 @@
 <template>
     <aside class="controls pa4 ph6-ns mb7-ns">
         <form>
-            <fieldset class="ba b--transparent pa0 mh0">
+            <label class="tr">
+                <div class="f6 fw5 tracked lh-title ttu o-80">
+                    Paragraphs
+                </div>
                 <input
                     v-model="paragraphs"
-                    class="input-reset w3 pa2 ba"
-                    type="number"
-                    min="1"
+                    class="input-reset w3 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
                 />
+            </label>
+            <label class="tr">
+                <div class="f6 fw5 tracked lh-title ttu o-80">
+                    Length
+                </div>
                 <input
                     v-model="sentences"
-                    class="input-reset w3 pa2 ba"
-                    type="number"
-                    min="1"
+                    class="input-reset w3 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
                 />
+            </label>
+            <label class="tr">
+                <div class="f6 fw5 tracked lh-title ttu o-80">
+                    Japanese
+                </div>
                 <input v-model="nihongo" type="checkbox" />
-            </fieldset>
+            </label>
         </form>
     </aside>
 </template>
@@ -60,5 +75,12 @@ export default {
 <style lang="postcss">
 .controls {
     background-color: rgba(226, 230, 232, 0.05);
+}
+
+/* @todo Don't use this layout for wide display. */
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
 }
 </style>
