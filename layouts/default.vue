@@ -15,17 +15,37 @@
                         />
                     </svg>
                 </a>
-                <a class="link white hover-gibson dib w2 h2 pa2 mt6" href="/">
+                <button
+                    class="controls-button link white hover-gibson dib w2 h2 pa2 pointer"
+                    @click="setControlsVisible(!controlsVisible)"
+                >
                     <svg
+                        v-if="controlsVisible"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
-                        fill="currentColor"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                    >
+                        <path d="M13 3L3 13M3 3l10 10" />
+                    </svg>
+                    <svg
+                        v-else
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
                     >
                         <path
-                            d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
+                            d="M2.667 14V9.333M2.667 6.667V2M8 14V8M8 5.333V2M13.333 14v-3.333M13.333 8V2M.667 9.333h4M6 5.333h4M11.333 10.667h4"
                         />
                     </svg>
-                </a>
+                </button>
             </div>
             <footer class="flex flex-column items-center bg-black-40">
                 <a
@@ -72,6 +92,26 @@
         <nuxt></nuxt>
     </main>
 </template>
+
+<script>
+import { mapMutations, mapGetters } from 'vuex'
+
+export default {
+    computed: {
+        ...mapGetters({
+            controlsVisible: 'getControlsVisible',
+        }),
+    },
+
+    mounted() {
+        // check window.matchMedia and setControlsVisible
+    },
+
+    methods: {
+        ...mapMutations(['setControlsVisible']),
+    },
+}
+</script>
 
 <style>
 /* stylelint-disable-next-line selector-max-id */
@@ -146,6 +186,16 @@ footer {
 
 abbr[title] {
     text-decoration: none;
+}
+
+/**
+  1. Line up button icon with labels in control component.
+ */
+.controls-button {
+    margin-top: 7.5rem; /* [1] */
+    background-color: transparent;
+    border: 0;
+    appearance: none;
 }
 
 /* .c2sc {

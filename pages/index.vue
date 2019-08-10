@@ -16,7 +16,7 @@
             </div>
         </header>
         <transition-height>
-            <controls class="ml5 ml0-ns"></controls>
+            <controls v-if="controlsVisible" class="ml5 ml0-ns"></controls>
         </transition-height>
         <transition name="fade" mode="out-in">
             <ipsum v-if="wordsLoaded" class="main-content"></ipsum>
@@ -55,6 +55,7 @@ export default {
         }),
         ...mapGetters({
             wordsLoaded: 'getWordsLoaded',
+            controlsVisible: 'getControlsVisible',
         }),
     },
 

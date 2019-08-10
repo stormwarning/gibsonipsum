@@ -30,6 +30,7 @@ export const state = () => ({
     words: [],
     wordsLoaded: false,
     randomAdjective: 'cyberpunk',
+    controlsVisible: true,
 })
 
 export const getters = {
@@ -39,6 +40,7 @@ export const getters = {
     getWordsLoaded: (state) => state.wordsLoaded,
     getAdjective: (state) => state.randomAdjective,
     getNihongo: (state) => state.nihongo,
+    getControlsVisible: (state) => state.controlsVisible,
 }
 
 export const mutations = {
@@ -59,6 +61,9 @@ export const mutations = {
     },
     setNihongo(state, nihongo) {
         state.nihongo = nihongo
+    },
+    setControlsVisible(state, boolean) {
+        state.controlsVisible = boolean
     },
 }
 

@@ -1,6 +1,6 @@
 <template>
-    <aside class="controls pa4 ph6-ns mb7-ns">
-        <form>
+    <aside class="controls mb7-ns">
+        <form class="pa4 ph6-ns">
             <label class="tr">
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Paragraphs
