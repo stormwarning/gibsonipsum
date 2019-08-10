@@ -1,7 +1,7 @@
 <template>
     <main id="app">
         <nav
-            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
+            class="the-nav fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
             <div class="flex flex-column items-center">
                 <a class="link white hover-gibson dib w2 h2 pa2" href="/">
@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 /* stylelint-disable-next-line selector-max-id */
 #app {
     /* display: grid;
@@ -122,57 +122,9 @@ export default {
     min-height: 100vh;
 }
 
-nav {
-    grid-area: nav;
-}
-
-article {
-    @media (min-width: 480px) {
-        display: grid;
-        grid-area: article;
-
-        /* grid-template-rows: 1fr 1fr; */
-        grid-template-areas: 'header main';
-        grid-template-columns: 1fr 1fr;
-
-        /* grid-column-start: n-start; */
-    }
-
-    & > header {
-        background-color: var(--bg);
-        background-blend-mode: lighten;
-
-        @media (min-width: 480px) {
-            grid-row-start: header-start;
-            grid-row-end: controls-end;
-            grid-column: header;
-        }
-
-        & > figure {
-            background-color: var(--bg);
-            background-blend-mode: luminosity;
-            mix-blend-mode: lighten;
-        }
-
-        /* > div { left: 8rem; } */
-    }
-
-    /* > aside {
-        grid-area: controls;
-    } */
-
-    & > main {
-        @media (min-width: 480px) {
-            grid-area: main;
-        }
-
-        & > p {
-            line-height: 2;
-        }
-
-        & > :last-child {
-            margin-bottom: 0;
-        }
+.the-nav {
+    @media (min-width: 60em) {
+        width: 5rem;
     }
 }
 

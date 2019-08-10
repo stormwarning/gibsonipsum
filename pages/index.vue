@@ -1,10 +1,10 @@
 <template>
-    <article class="relative min-vh-100 overflow-hidden">
+    <article class="the-body relative min-vh-100 overflow-hidden">
         <header
-            class="relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns"
+            class="the-header relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns"
         >
             <figure
-                class="dn db-ns absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
+                class="bg-image dn db-ns absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
                 style="background-image: url(/gibson-glitch.png);"
             ></figure>
             <div class="relative pl5-ns">
@@ -70,11 +70,54 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+.the-body {
+    @media (min-width: 480px) {
+        display: grid;
+        grid-area: article;
+
+        /* grid-template-rows: 1fr 1fr; */
+        grid-template-areas: 'header main';
+        grid-template-columns: 1fr 1fr;
+
+        /* grid-column-start: n-start; */
+    }
+}
+
+.the-header {
+    background-color: var(--bg);
+    background-blend-mode: lighten;
+
+    @media (min-width: 480px) {
+        grid-row-start: header-start;
+        grid-row-end: controls-end;
+        grid-column: header;
+    }
+
+    @media (min-width: 60em) {
+        padding: 5rem;
+    }
+}
+
+.bg-image {
+    background-color: var(--bg);
+    background-blend-mode: luminosity;
+    mix-blend-mode: lighten;
+}
+
 .version-tag {
     top: 1.5rem;
 }
 
 .main-content {
     margin-top: 6rem;
+    line-height: 2;
+
+    @media (min-width: 480px) {
+        grid-area: main;
+    }
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
 }
 </style>
