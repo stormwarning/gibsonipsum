@@ -1,5 +1,5 @@
 <template>
-    <main id="app">
+    <main id="app" class="app-container">
         <nav
             class="the-nav fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
@@ -47,7 +47,9 @@
                     </svg>
                 </button>
             </div>
-            <footer class="flex flex-column items-center bg-black-40">
+            <footer
+                class="nav-footer flex flex-column items-center bg-black-40"
+            >
                 <a
                     class="link white hover-gibson dib w2 h2 pa2"
                     href="https://github.com/stormwarning"
@@ -114,26 +116,14 @@ export default {
 </script>
 
 <style lang="postcss">
-/* stylelint-disable-next-line selector-max-id */
-#app {
-    /* display: grid;
-    grid-template-columns: 64px 1fr;
-    grid-template-areas: "nav article"; */
+.app-container {
     min-height: 100vh;
 }
 
 .the-nav {
     @media (min-width: 60em) {
-        width: 5rem;
+        width: var(--site-gutter);
     }
-}
-
-footer {
-    /* display: none; */
-    /* flex-direction: column; */
-    /* justify-content: flex-end; */
-    /* grid-area: f; */
-    /* width: 100%; */
 }
 
 abbr[title] {

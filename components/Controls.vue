@@ -1,7 +1,7 @@
 <template>
-    <aside class="controls mb7-ns">
-        <form class="pa4 ph6-ns">
-            <label class="tr">
+    <aside class="controls">
+        <form class="controls-form pa4">
+            <label class="paragraph-field tr">
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Paragraphs
                 </div>
@@ -13,7 +13,7 @@
                     pattern="[0-9]*"
                 />
             </label>
-            <label class="tr">
+            <label class="length-field tr">
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Length
                 </div>
@@ -25,7 +25,7 @@
                     pattern="[0-9]*"
                 />
             </label>
-            <label class="tr">
+            <label class="nihongo-field tr">
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Japanese
                 </div>
@@ -75,12 +75,31 @@ export default {
 <style lang="postcss">
 .controls {
     background-color: rgba(226, 230, 232, 0.05);
+
+    @media (min-width: 60em) {
+        position: absolute;
+        right: 0;
+        bottom: 8.75vw;
+        grid-area: header;
+        background-color: transparent;
+    }
 }
 
-/* @todo Don't use this layout for wide display. */
-form {
+.controls-form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
+
+    @media (min-width: 60em) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 0.5rem;
+        padding: 3rem;
+    }
+}
+
+.nihongo-field {
+    @media (min-width: 60em) {
+        margin-top: 2.5rem;
+    }
 }
 </style>

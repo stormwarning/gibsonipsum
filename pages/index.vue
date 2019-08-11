@@ -1,17 +1,19 @@
 <template>
     <article class="the-body relative min-vh-100 overflow-hidden">
         <header
-            class="the-header relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns"
+            class="the-header relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns overflow-hidden"
         >
             <figure
                 class="bg-image dn db-ns absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
                 style="background-image: url(/gibson-glitch.png);"
             ></figure>
-            <div class="relative pl5-ns">
+            <div class="masthead relative">
                 <h1 class="mv0 nr2 white lh-solid f-72 f-6-ns tracked-tight tr">
                     Gibson<br />— Ipsum
                 </h1>
-                <span class="version-tag absolute db f6">——{{ version }}</span>
+                <span class="version-tag absolute db f6 lh-copy"
+                    >——{{ version }}</span
+                >
                 <intro></intro>
             </div>
         </header>
@@ -92,20 +94,38 @@ export default {
         grid-row-end: controls-end;
         grid-column: header;
     }
-
-    @media (min-width: 60em) {
-        padding: 5rem;
-    }
 }
 
 .bg-image {
     background-color: var(--bg);
     background-blend-mode: luminosity;
     mix-blend-mode: lighten;
+
+    @media (min-width: 60em) {
+        margin: var(--site-gutter);
+    }
+}
+
+.masthead {
+    @media (min-width: 60em) {
+        padding-left: 2rem;
+        margin-top: 8.75vw;
+        margin-left: var(--site-gutter);
+    }
+
+    & h1 {
+        @media (min-width: 72em) {
+            font-size: 96px;
+        }
+    }
 }
 
 .version-tag {
     top: 1.5rem;
+
+    @media (min-width: 60em) {
+        top: 0;
+    }
 }
 
 .main-content {
@@ -114,6 +134,10 @@ export default {
 
     @media (min-width: 480px) {
         grid-area: main;
+    }
+
+    @media (min-width: 60em) {
+        margin: var(--site-gutter);
     }
 
     & > :last-child {

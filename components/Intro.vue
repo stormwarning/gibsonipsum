@@ -1,5 +1,5 @@
 <template>
-    <div class="dn db-ns mt4 mt3-ns f6 lh-copy ttu tracked white-50">
+    <div class="the-intro dn db-ns mt4 mt3-ns f6 lh-copy ttu tracked white-50">
         A {{ adjective }} placeholder text generator.
         <br />
         By
@@ -24,3 +24,9 @@ export default {
     },
 }
 </script>
+
+<style lang="postcss" scoped>
+.the-intro {
+    max-width: 18rem;
+}
+</style>

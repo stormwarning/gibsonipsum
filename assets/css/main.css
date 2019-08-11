@@ -4,6 +4,12 @@
     --bg: #16191b;
     --fg: #e2e6e8;
     --blue: #2cccff;
+
+    --site-gutter: 4rem;
+
+    @media (min-width: 72em) {
+        --site-gutter: 5rem;
+    }
 }
 
 ::selection {
