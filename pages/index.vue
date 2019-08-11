@@ -4,9 +4,10 @@
             class="the-header relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns overflow-hidden"
         >
             <figure
-                class="bg-image dn db-ns absolute absolute--fill z-0 ma0 cover o-50 mh6-ns mv5-ns"
-                style="background-image: url(/gibson-glitch.png);"
-            ></figure>
+                class="bg-image dn db-ns absolute absolute--fill z-0 ma0 o-50 mh6-ns mv5-ns"
+            >
+                <img src="/gibson-glitch.png" alt="" />
+            </figure>
             <div class="masthead relative">
                 <h1 class="mv0 nr2 white lh-solid f-72 f-6-ns tracked-tight tr">
                     Gibson<br />— Ipsum
@@ -98,11 +99,18 @@ export default {
 
 .bg-image {
     background-color: var(--bg);
-    background-blend-mode: luminosity;
     mix-blend-mode: lighten;
 
     @media (min-width: 60em) {
         margin: var(--site-gutter);
+    }
+
+    & img {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        object-fit: cover;
+        mix-blend-mode: luminosity;
     }
 }
 
