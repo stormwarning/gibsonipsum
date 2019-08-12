@@ -17,10 +17,10 @@
                 >
                 <intro></intro>
             </div>
+            <transition-height>
+                <controls v-if="controlsVisible" class="ml5 ml0-ns"></controls>
+            </transition-height>
         </header>
-        <transition-height>
-            <controls v-if="controlsVisible" class="ml5 ml0-ns"></controls>
-        </transition-height>
         <transition name="fade" mode="out-in">
             <ipsum v-if="wordsLoaded" class="main-content"></ipsum>
             <main
