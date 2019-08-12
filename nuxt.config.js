@@ -56,7 +56,7 @@ export default {
         },
     },
 
-    plugins: [],
+    plugins: ['~/plugins/vue-mq'],
 
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-3' }],

@@ -16,6 +16,7 @@
                     </svg>
                 </a>
                 <button
+                    v-if="displayControlsToggle"
                     class="controls-button link white hover-gibson dib w2 h2 pa2 pointer"
                     @click="setControlsVisible(!controlsVisible)"
                 >
@@ -99,6 +100,12 @@
 import { mapMutations, mapGetters } from 'vuex'
 
 export default {
+    data() {
+        return {
+            displayControlsToggle: true,
+        }
+    },
+
     computed: {
         ...mapGetters({
             controlsVisible: 'getControlsVisible',
@@ -106,11 +113,24 @@ export default {
     },
 
     mounted() {
-        // check window.matchMedia and setControlsVisible
+        window.addEventListener('resize', this.onResize)
+        this.onResize()
+    },
+
+    beforeDestroy() {
+        window.removeEventListener('resize', this.onResize)
     },
 
     methods: {
         ...mapMutations(['setControlsVisible']),
+
+        onResize(event) {
+            this.displayControlsToggle = this.$mq !== 'laptop'
+
+            if (this.$mq === 'laptop') {
+                this.setControlsVisible(true)
+            }
+        },
     },
 }
 </script>

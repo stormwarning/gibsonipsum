@@ -30,7 +30,7 @@ export const state = () => ({
     words: [],
     wordsLoaded: false,
     randomAdjective: 'cyberpunk',
-    controlsVisible: true,
+    controlsVisible: false,
 })
 
 export const getters = {
