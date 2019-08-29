@@ -1,5 +1,5 @@
 <template>
-    <main id="app" class="app-container">
+    <main id="app" class="app-container pl5">
         <nav
             class="the-nav fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
@@ -139,9 +139,15 @@ export default {
 <style lang="postcss">
 .app-container {
     min-height: 100vh;
+
+    @media (min-width: 60em) {
+        padding-left: var(--site-gutter);
+    }
 }
 
 .the-nav {
+    left: 0;
+
     @media (min-width: 60em) {
         width: var(--site-gutter);
     }

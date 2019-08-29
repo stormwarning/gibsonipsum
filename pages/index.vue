@@ -1,7 +1,7 @@
 <template>
-    <article class="the-body relative min-vh-100 overflow-hidden">
+    <article class="the-body relative w-100 min-vh-100 overflow-hidden">
         <header
-            class="the-header relative fixed-ns flex flex-column justify-between ml5 w-50-ns vh-100-ns ph0-ns ml0-ns overflow-hidden"
+            class="the-header relative fixed-ns flex flex-column justify-between w-50-ns vh-100-ns ph0-ns ml0-ns"
         >
             <figure
                 class="bg-image dn db-ns absolute absolute--fill z-0 ma0 o-50 mh6-ns mv5-ns"
@@ -18,14 +18,14 @@
                 <intro></intro>
             </div>
             <transition-height>
-                <controls v-if="controlsVisible" class="ml5 ml0-ns"></controls>
+                <controls v-if="controlsVisible" class=""></controls>
             </transition-height>
         </header>
         <transition name="fade" mode="out-in">
             <ipsum v-if="wordsLoaded" class="main-content"></ipsum>
             <main
                 v-else
-                class="main-content h-100 ph3 pb6 ml5 ph0-ns pv6-ns ml0-ns code"
+                class="main-content h-100 ph3 pb6 ph0-ns pv6-ns ml0-ns code"
             >
                 <p class="f6 measure-wide mt4 mt0-ns center"
                     >The sky above the port was the color of television, tuned
@@ -103,6 +103,7 @@ export default {
 
     @media (min-width: 60em) {
         margin: var(--site-gutter);
+        margin-left: 0;
     }
 
     & img {
