@@ -8,7 +8,7 @@
             >
                 <img src="/gibson-glitch.png" alt="" />
             </figure>
-            <div class="masthead relative">
+            <div class="masthead relative overflow-hidden-ns">
                 <h1 class="mv0 nr2 white lh-solid f-72 f-6-ns tracked-tight tr">
                     Gibson<br />— Ipsum
                 </h1>
@@ -119,7 +119,8 @@ export default {
     @media (min-width: 60em) {
         padding-left: 2rem;
         margin-top: 8.75vw;
-        margin-left: var(--site-gutter);
+
+        /* margin-left: var(--site-gutter); */
     }
 
     & h1 {
