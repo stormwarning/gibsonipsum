@@ -125,10 +125,11 @@ export default {
         ...mapMutations(['setControlsVisible']),
 
         onResize(event) {
-            this.displayControlsToggle = this.$mq !== 'laptop'
+            this.displayControlsToggle =
+                this.$mq === 'mobile' || this.$mq === 'tablet'
 
-            if (this.$mq === 'laptop') {
-                this.setControlsVisible(true)
+            if (this.$mq === 'mobile' || this.$mq === 'tablet') {
+                this.setControlsVisible(false)
             }
         },
     },
