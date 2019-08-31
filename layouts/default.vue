@@ -53,7 +53,7 @@
             >
                 <a
                     class="link white hover-gibson dib w2 h2 pa2"
-                    href="https://github.com/stormwarning"
+                    href="https://github.com/stormwarning/gibsonipsum"
                     title="GitHub"
                 >
                     <svg
