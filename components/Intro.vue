@@ -1,5 +1,5 @@
 <template>
-    <div class="the-intro dn db-ns mt4 mt3-ns f6 lh-copy ttu tracked white-50">
+    <div class="the-intro dn db-l mt4 mt3-l f6 lh-copy ttu tracked white-50">
         A {{ adjective }} placeholder text generator.
         <br />
         By
