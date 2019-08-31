@@ -39,16 +39,16 @@
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
 
-import Ipsum from '~/components/Ipsum'
-import Intro from '~/components/Intro'
 import Controls from '~/components/Controls'
+import Intro from '~/components/Intro'
+import Ipsum from '~/components/Ipsum'
 import TransitionHeight from '~/components/TransitionHeight'
 
 export default {
     components: {
-        Ipsum,
-        Intro,
         Controls,
+        Intro,
+        Ipsum,
         TransitionHeight,
     },
 
@@ -77,12 +77,8 @@ export default {
     @media (min-width: 60em) {
         display: grid;
         grid-area: article;
-
-        /* grid-template-rows: 1fr 1fr; */
         grid-template-areas: 'header main';
         grid-template-columns: 1fr 1fr;
-
-        /* grid-column-start: n-start; */
     }
 }
 
@@ -119,8 +115,6 @@ export default {
     @media (min-width: 60em) {
         padding-left: 2rem;
         margin-top: 8.75vw;
-
-        /* margin-left: var(--site-gutter); */
     }
 
     & h1 {

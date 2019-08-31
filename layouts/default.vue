@@ -97,7 +97,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     data() {
@@ -166,23 +166,4 @@ abbr[title] {
     border: 0;
     appearance: none;
 }
-
-/* .c2sc {
-    text-transform: uppercase;
-    font-variant-caps: all-small-caps;
-    -ms-font-feature-settings: "smcp" 0, "c2sc";
-}
-
-@supports (font-variant-caps: all-small-caps) or (font-feature-settings: "c2sc") {
-  .c2sc {
-    text-transform: lowercase;
-  }
-}
-
-@supports not (font-variant-caps: all-small-caps) {
-  .c2sc {
-    -webkit-font-feature-settings: "onum", "smcp" 0, "c2sc", "smcp", "c2sc";
-    font-feature-settings: "onum", "smcp" 0, "c2sc", "smcp", "c2sc";
-  }
-} */
 </style>
