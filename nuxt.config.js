@@ -60,7 +60,7 @@ export default {
 
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-3' }],
-        ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
+        // ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
         '@nuxtjs/pwa',
     ],
 
