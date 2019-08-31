@@ -1,5 +1,5 @@
 <template>
-    <main class="h-100 ph2 pb6 ml5 ph0-ns pv6-ns ml0-ns code">
+    <main class="h-100 ph3 pb6 ph0-l pv6-l ml0-l mono">
         <p
             v-for="(paragraph, pIdx) in paragraphs"
             :key="pIdx"

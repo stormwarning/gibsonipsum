@@ -15,7 +15,7 @@ export default {
       Headers of the page
      */
     head: {
-        htmlAttrs: { class: 'sans-serif bg-light-gray' },
+        htmlAttrs: { class: 'bg-light-gray' },
         title: SITE_TITLE,
         description: SITE_DESCRIPTION,
         meta: [],
@@ -56,11 +56,11 @@ export default {
         },
     },
 
-    plugins: [],
+    plugins: ['~/plugins/vue-mq'],
 
     modules: [
         ['@nuxtjs/google-analytics', { ua: 'UA-58836125-3' }],
-        ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
+        // ['@nuxtjs/markdownit', { preset: 'commonmark', typographer: true }],
         '@nuxtjs/pwa',
     ],
 

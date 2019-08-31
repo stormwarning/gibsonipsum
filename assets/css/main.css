@@ -1,7 +1,15 @@
+@import url('https://rsms.me/inter/inter.css');
+
 :root {
     --bg: #16191b;
     --fg: #e2e6e8;
     --blue: #2cccff;
+
+    --site-gutter: 4rem;
+
+    @media (min-width: 72em) {
+        --site-gutter: 5rem;
+    }
 }
 
 ::selection {
@@ -9,9 +17,22 @@
     background-color: rgba(255, 255, 255, 0.99);
 }
 
+html {
+    font-family: 'Inter', sans-serif;
+}
+
 body {
     color: var(--fg);
     background-color: var(--bg);
+    overscroll-behavior: none;
+}
+
+.f-72 {
+    font-size: 4.5rem;
+}
+
+.grey-100 {
+    color: var(--fg);
 }
 
 .gibson {
@@ -20,6 +41,17 @@ body {
 .hover-gibson:hover,
 .hover-gibson:focus {
     color: var(--blue);
+}
+
+.mono {
+    font-family:
+        'SF Mono',
+        SFMono-Regular,
+        Consolas,
+        'Liberation Mono',
+        Menlo,
+        Courier,
+        monospace;
 }
 
 .fade-enter-active,

@@ -1,23 +1,59 @@
 <template>
-    <main id="app">
+    <main id="app" class="app-container pl5">
         <nav
-            class="fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
+            class="the-nav fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
-            <a class="link white hover-gibson dib w2 h2 pa2" href="/">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
+            <div class="flex flex-column items-center">
+                <a class="link white hover-gibson dib w2 h2 pa2" href="/">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
+                        />
+                    </svg>
+                </a>
+                <button
+                    v-if="displayControlsToggle"
+                    class="controls-button link white hover-gibson dib w2 h2 pa2 pointer"
+                    @click="setControlsVisible(!controlsVisible)"
                 >
-                    <path
-                        d="M9 .577l4.928 2.846a2 2 0 0 1 1 1.732v1.057a.8.8 0 0 1-1.2.692l-7.631-4.42a.8.8 0 0 1 0-1.386L7 .578a2 2 0 0 1 2 0zm4.928 12L9 15.424a2 2 0 0 1-2 0l-4.928-2.845a2 2 0 0 1-1-1.733v-5.69a2 2 0 0 1 1-1.732l.627-.362a2 2 0 0 1 2.001 0l9.23 5.337a2 2 0 0 1 .998 1.73v.717a2 2 0 0 1-1 1.732z"
-                    />
-                </svg>
-            </a>
-            <footer class="flex flex-column items-center bg-black-40">
+                    <svg
+                        v-if="controlsVisible"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                    >
+                        <path d="M13 3L3 13M3 3l10 10" />
+                    </svg>
+                    <svg
+                        v-else
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                    >
+                        <path
+                            d="M2.667 14V9.333M2.667 6.667V2M8 14V8M8 5.333V2M13.333 14v-3.333M13.333 8V2M.667 9.333h4M6 5.333h4M11.333 10.667h4"
+                        />
+                    </svg>
+                </button>
+            </div>
+            <footer
+                class="nav-footer flex flex-column items-center bg-black-40"
+            >
                 <a
                     class="link white hover-gibson dib w2 h2 pa2"
-                    href="https://github.com/stormwarning"
+                    href="https://github.com/stormwarning/gibsonipsum"
                     title="GitHub"
                 >
                     <svg
@@ -60,97 +96,74 @@
     </main>
 </template>
 
-<style>
-/* stylelint-disable-next-line selector-max-id */
-#app {
-    /* display: grid;
-    grid-template-columns: 64px 1fr;
-    grid-template-areas: "nav article"; */
+<script>
+import { mapGetters, mapMutations } from 'vuex'
+
+export default {
+    data() {
+        return {
+            displayControlsToggle: true,
+        }
+    },
+
+    computed: {
+        ...mapGetters({
+            controlsVisible: 'getControlsVisible',
+        }),
+    },
+
+    mounted() {
+        window.addEventListener('resize', this.onResize)
+        this.onResize()
+    },
+
+    beforeDestroy() {
+        window.removeEventListener('resize', this.onResize)
+    },
+
+    methods: {
+        ...mapMutations(['setControlsVisible']),
+
+        onResize(event) {
+            this.displayControlsToggle =
+                this.$mq === 'mobile' || this.$mq === 'tablet'
+
+            if (this.$mq === 'mobile' || this.$mq === 'tablet') {
+                this.setControlsVisible(false)
+            }
+        },
+    },
+}
+</script>
+
+<style lang="postcss">
+.app-container {
     min-height: 100vh;
-}
 
-nav {
-    grid-area: nav;
-}
-
-article {
-    @media (min-width: 480px) {
-        display: grid;
-        grid-area: article;
-
-        /* grid-template-rows: 1fr 1fr; */
-        grid-template-areas: 'header main';
-        grid-template-columns: 1fr 1fr;
-
-        /* grid-column-start: n-start; */
-    }
-
-    & > header {
-        background-color: var(--bg);
-        background-blend-mode: lighten;
-
-        @media (min-width: 480px) {
-            grid-row-start: header-start;
-            grid-row-end: controls-end;
-            grid-column: header;
-        }
-
-        & > figure {
-            background-color: var(--bg);
-            background-blend-mode: luminosity;
-            mix-blend-mode: lighten;
-        }
-
-        /* > div { left: 8rem; } */
-    }
-
-    /* > aside {
-        grid-area: controls;
-    } */
-
-    & > main {
-        @media (min-width: 480px) {
-            grid-area: main;
-        }
-
-        & > p {
-            line-height: 2;
-        }
-
-        & > :last-child {
-            margin-bottom: 0;
-        }
+    @media (min-width: 60em) {
+        padding-left: var(--site-gutter);
     }
 }
 
-footer {
-    /* display: none; */
-    /* flex-direction: column; */
-    /* justify-content: flex-end; */
-    /* grid-area: f; */
-    /* width: 100%; */
+.the-nav {
+    left: 0;
+
+    @media (min-width: 60em) {
+        width: var(--site-gutter);
+    }
 }
 
 abbr[title] {
     text-decoration: none;
 }
 
-/* .c2sc {
-    text-transform: uppercase;
-    font-variant-caps: all-small-caps;
-    -ms-font-feature-settings: "smcp" 0, "c2sc";
+/**
+  1. Line up button icon with labels in control component.
+ */
+.controls-button {
+    margin-top: 7.5rem; /* [1] */
+    background-color: transparent;
+    border: 0;
+    appearance: none;
 }
-
-@supports (font-variant-caps: all-small-caps) or (font-feature-settings: "c2sc") {
-  .c2sc {
-    text-transform: lowercase;
-  }
-}
-
-@supports not (font-variant-caps: all-small-caps) {
-  .c2sc {
-    -webkit-font-feature-settings: "onum", "smcp" 0, "c2sc", "smcp", "c2sc";
-    font-feature-settings: "onum", "smcp" 0, "c2sc", "smcp", "c2sc";
-  }
-} */
 </style>
