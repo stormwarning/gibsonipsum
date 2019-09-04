@@ -1,25 +1,4 @@
-let wordlist = []
-let skip = 0
-
-function getAllWords(endpoint, callback) {
-    const getWords = fetch(endpoint)
-
-    getWords
-        .then((data) => data.json())
-        .then((data) => {
-            for (const i in data.items) {
-                wordlist.push(data.items[i])
-            }
-
-            // Pages are always 100 items or less.
-            if (data.items.length < 100) {
-                callback(wordlist)
-            } else {
-                skip = skip + 100
-                getAllWords(endpoint + '&skip=' + skip, callback)
-            }
-        })
-}
+import { getWords } from '../utils/api'
 
 export const state = () => ({
     version: process.env.VERSION,
@@ -69,23 +48,22 @@ export const mutations = {
 
 export const actions = {
     fetchWords({ state, commit }) {
-        let dataURL =
-            'https://cdn.contentful.com/spaces/8j8wvx07a2uv/entries?access_token=f582803bba0fe0513deecb0f9edf8e0e0d31c631247ccc64d7d99087e7a75e85'
+        getWords({
+            onComplete: (wordlist) => {
+                commit('setWordList', wordlist)
+                commit('setWordsLoaded', true)
 
-        getAllWords(dataURL, (wordlist) => {
-            commit('setWordList', wordlist)
-            commit('setWordsLoaded', true)
+                let filteredWords = wordlist.filter((word) => {
+                    return (
+                        word.fields.type === 'adjective' &&
+                        word.fields.tags.includes('compound')
+                    )
+                })
+                let w = Math.floor(Math.random() * filteredWords.length)
+                let adjective = filteredWords[w].fields.word
 
-            let filteredWords = wordlist.filter((word) => {
-                return (
-                    word.fields.type === 'adjective' &&
-                    word.fields.tags.includes('compound')
-                )
-            })
-            let w = Math.floor(Math.random() * filteredWords.length)
-            let adjective = filteredWords[w].fields.word
-
-            commit('setAdjective', adjective)
+                commit('setAdjective', adjective)
+            },
         })
     },
 }
