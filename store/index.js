@@ -1,4 +1,4 @@
-import { getWords } from '../utils/api'
+import { fetchWords, retrieveWords, storeWords } from '../utils/api'
 
 export const state = () => ({
     version: process.env.VERSION,
@@ -47,23 +47,38 @@ export const mutations = {
 }
 
 export const actions = {
-    fetchWords({ state, commit }) {
-        getWords({
-            onComplete: (wordlist) => {
-                commit('setWordList', wordlist)
-                commit('setWordsLoaded', true)
+    getWords({ state, commit }) {
+        function commitWordsToState(wordlist) {
+            commit('setWordList', wordlist)
+            commit('setWordsLoaded', true)
 
-                let filteredWords = wordlist.filter((word) => {
-                    return (
-                        word.fields.type === 'adjective' &&
-                        word.fields.tags.includes('compound')
-                    )
+            let filteredWords = wordlist.filter((word) => {
+                return (
+                    word.fields.type === 'adjective' &&
+                    word.fields.tags.includes('compound')
+                )
+            })
+            let w = Math.floor(Math.random() * filteredWords.length)
+            let adjective = filteredWords[w].fields.word
+
+            commit('setAdjective', adjective)
+        }
+
+        retrieveWords().then((words) => {
+            if (words) {
+                commitWordsToState(words)
+            } else {
+                /**
+                 * If there's no words in localstorage, fetch 'em from
+                 * the API, commit to state, and store locally.
+                 */
+                fetchWords({
+                    onComplete: (words) => {
+                        commitWordsToState(words)
+                        storeWords(words)
+                    },
                 })
-                let w = Math.floor(Math.random() * filteredWords.length)
-                let adjective = filteredWords[w].fields.word
-
-                commit('setAdjective', adjective)
-            },
+            }
         })
     },
 }
