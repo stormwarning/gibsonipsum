@@ -63,11 +63,11 @@ export default {
     },
 
     mounted() {
-        this.fetchWords()
+        this.getWords()
     },
 
     methods: {
-        ...mapActions(['fetchWords']),
+        ...mapActions(['getWords']),
     },
 }
 </script>

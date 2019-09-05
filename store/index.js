@@ -1,25 +1,4 @@
-let wordlist = []
-let skip = 0
-
-function getAllWords(endpoint, callback) {
-    const getWords = fetch(endpoint)
-
-    getWords
-        .then((data) => data.json())
-        .then((data) => {
-            for (const i in data.items) {
-                wordlist.push(data.items[i])
-            }
-
-            // Pages are always 100 items or less.
-            if (data.items.length < 100) {
-                callback(wordlist)
-            } else {
-                skip = skip + 100
-                getAllWords(endpoint + '&skip=' + skip, callback)
-            }
-        })
-}
+import { fetchWords, retrieveWords, storeWords } from '../utils/api'
 
 export const state = () => ({
     version: process.env.VERSION,
@@ -68,11 +47,8 @@ export const mutations = {
 }
 
 export const actions = {
-    fetchWords({ state, commit }) {
-        let dataURL =
-            'https://cdn.contentful.com/spaces/8j8wvx07a2uv/entries?access_token=f582803bba0fe0513deecb0f9edf8e0e0d31c631247ccc64d7d99087e7a75e85'
-
-        getAllWords(dataURL, (wordlist) => {
+    getWords({ state, commit }) {
+        function commitWordsToState(wordlist) {
             commit('setWordList', wordlist)
             commit('setWordsLoaded', true)
 
@@ -86,6 +62,23 @@ export const actions = {
             let adjective = filteredWords[w].fields.word
 
             commit('setAdjective', adjective)
+        }
+
+        retrieveWords().then((words) => {
+            if (words) {
+                commitWordsToState(words)
+            } else {
+                /**
+                 * If there's no words in localstorage, fetch 'em from
+                 * the API, commit to state, and store locally.
+                 */
+                fetchWords({
+                    onComplete: (words) => {
+                        commitWordsToState(words)
+                        storeWords(words)
+                    },
+                })
+            }
         })
     },
 }
