@@ -5,24 +5,22 @@
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Paragraphs
                 </div>
-                <input
+                <numeric-input
                     v-model="paragraphs"
-                    class="input-reset w3 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
+                    :min="1"
+                    :max="8"
+                    @update="(value) => (paragraphs = value)"
                 />
             </label>
             <label class="length-field tr">
                 <div class="f6 fw5 tracked lh-title ttu o-80">
                     Length
                 </div>
-                <input
+                <numeric-input
                     v-model="sentences"
-                    class="input-reset w3 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
-                    type="text"
-                    inputmode="numeric"
-                    pattern="[0-9]*"
+                    :min="2"
+                    :max="10"
+                    @update="(value) => (sentences = value)"
                 />
             </label>
             <label class="nihongo-field tr">
@@ -38,7 +36,13 @@
 <script>
 import { mapMutations } from 'vuex'
 
+import NumericInput from './NumericInput'
+
 export default {
+    components: {
+        NumericInput,
+    },
+
     computed: {
         paragraphs: {
             get() {
