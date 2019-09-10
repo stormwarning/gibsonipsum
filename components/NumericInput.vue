@@ -2,7 +2,7 @@
     <label class="relative">
         <input
             v-model.number="value"
-            class="absolute input-reset w3 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
+            class="absolute input-reset w3 h2 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
             type="number"
             :class="shouldDisplayInput ? '' : 'is-hidden'"
             :min="min"
@@ -13,7 +13,7 @@
             @focus="onFocus"
         />
         <span
-            class="dib w3 pa0 mono f4 fw5 lh-copy white tr"
+            class="dib w3 h2 pa0 mono f4 fw5 lh-copy white tr"
             :class="shouldDisplayInput ? 'o-40' : ''"
             >{{ value | zeropad }}</span
         >
@@ -88,6 +88,10 @@ input {
     &::-webkit-outer-spin-button {
         appearance: none;
         margin: 0;
+    }
+
+    &:focus {
+        box-shadow: 0 2px 0 0 var(--blue);
     }
 }
 

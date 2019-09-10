@@ -4,7 +4,7 @@
             class="the-nav fixed z-5 flex flex-column justify-between items-center w3 vh-100 pv3 bg-black-40"
         >
             <div class="flex flex-column items-center">
-                <a class="link white hover-gibson dib w2 h2 pa2" href="/">
+                <a class="link white hover-gibson dib w2 h2 pa2 br1" href="/">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 16 16"
@@ -17,7 +17,7 @@
                 </a>
                 <button
                     v-if="displayControlsToggle"
-                    class="controls-button link white hover-gibson dib w2 h2 pa2 pointer"
+                    class="controls-button link white hover-gibson dib w2 h2 pa2 br1 pointer"
                     @click="setControlsVisible(!controlsVisible)"
                 >
                     <svg
@@ -52,7 +52,7 @@
                 class="nav-footer flex flex-column items-center bg-black-40"
             >
                 <a
-                    class="link white hover-gibson dib w2 h2 pa2"
+                    class="link white hover-gibson dib w2 h2 pa2 br1"
                     href="https://github.com/stormwarning/gibsonipsum"
                     title="GitHub"
                 >
@@ -71,7 +71,7 @@
                     </svg>
                 </a>
                 <a
-                    class="link white hover-gibson dib w2 h2 pa2 mt2"
+                    class="link white hover-gibson dib w2 h2 pa2 br1 mt2"
                     href="https://twitter.com/stormwarning"
                     title="Twitter"
                 >

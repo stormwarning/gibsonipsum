@@ -27,6 +27,21 @@ body {
     overscroll-behavior: none;
 }
 
+.link {
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+        transition-property: color, box-shadow;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px currentColor;
+    }
+}
+
 .f-72 {
     font-size: 4.5rem;
 }

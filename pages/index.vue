@@ -12,7 +12,7 @@
                 <h1 class="mv0 nr2 white lh-solid f-72 f-6-l tracked-tight tr">
                     Gibson<br />— Ipsum
                 </h1>
-                <span class="version-tag absolute db f6 lh-copy"
+                <span class="version-tag absolute db f6 lh-copy o-40"
                     >——{{ version }}</span
                 >
                 <intro></intro>
