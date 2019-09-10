@@ -3,7 +3,7 @@
   "name": "gibsonipsum",
   "description": "A cyberpunk placeholder text generator.",
   "author": "Jeff <rustyangel@gmail.com>",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "scripts": {
     "build": "nuxt build",
     "deploy": "np --no-release-draft && release",
