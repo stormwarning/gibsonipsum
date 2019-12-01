@@ -27,7 +27,7 @@
     "eslint": "6.3.x",
     "eslint-plugin-vue": "5.2.x",
     "husky": "3.0.x",
-    "lint-staged": "9.2.x",
+    "lint-staged": "9.5.x",
     "postcss-advanced-variables": "3.0.x",
     "stylelint": "10.1.x"
   },
