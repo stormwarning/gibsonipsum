@@ -15,7 +15,7 @@
     "start": "nuxt start"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "2.2.x",
+    "@nuxtjs/google-analytics": "2.3.x",
     "@nuxtjs/pwa": "3.0.0-beta.16",
     "localforage": "1.7.3",
     "nuxt": "2.9.x",
