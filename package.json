@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "2.2.x",
-    "@nuxtjs/pwa": "3.0.0-beta.16",
+    "@nuxtjs/pwa": "3.3.5",
     "localforage": "1.7.3",
     "nuxt": "2.9.x",
     "vue-mq": "1.0.1"
