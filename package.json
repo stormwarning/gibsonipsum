@@ -22,7 +22,7 @@
     "vue-mq": "1.0.1"
   },
   "devDependencies": {
-    "@zazen/eslint-config": "1.0.x",
+    "@zazen/eslint-config": "2.2.x",
     "@zazen/stylelint-config": "1.0.x",
     "eslint": "6.3.x",
     "eslint-plugin-vue": "5.2.x",
