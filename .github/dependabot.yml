@@ -1,0 +1,41 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "12:00"
+  open-pull-requests-limit: 10
+  target-branch: upgrade-dependencies
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: eslint-plugin-vue
+    versions:
+    - 7.4.0
+    - 7.5.0
+  - dependency-name: husky
+    versions:
+    - 4.3.6
+    - 4.3.8
+  - dependency-name: eslint
+    versions:
+    - 7.16.0
+    - 7.19.0
+  - dependency-name: lint-staged
+    versions:
+    - 10.5.3
+  - dependency-name: nuxt
+    versions:
+    - 2.14.12
+  - dependency-name: "@nuxtjs/pwa"
+    versions:
+    - 3.3.3
+  - dependency-name: "@zazen/eslint-config"
+    versions:
+    - 2.1.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
