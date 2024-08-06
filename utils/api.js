@@ -86,8 +86,7 @@ export async function fetchWords(options) {
 	 * Append words to main list and either call this function
 	 * again, or the callback function.
 	 */
-	wordlist = [...wordlist, ...(words || [])]
-
+	if (words) wordlist = [...wordlist, ...words]
 	if (shouldFetch) fetchWords({ fetch, wordlist, onComplete })
 
 	onComplete(wordlist)
