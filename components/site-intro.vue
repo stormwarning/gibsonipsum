@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .the-intro {
 	max-inline-size: 18rem;
 }

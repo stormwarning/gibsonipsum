@@ -43,17 +43,20 @@ export default {
 	},
 
 	build: {
-		postcss: {
-			plugins: {
-				// https://github.com/jonathantneal/postcss-advanced-variables#features
-				'postcss-advanced-variables': {},
-
-				// https://preset-env.cssdb.org/features
-				'postcss-preset-env': {
-					stage: 0,
-				},
-			},
-		},
+		/**
+		 * These PostCSS plugins don't seem to be needed any longer, and the
+		 * current config was causing issues with built styles.
+		 */
+		// postcss: {
+		// 	plugins: {
+		// 		// https://github.com/jonathantneal/postcss-advanced-variables#features
+		// 		// 'postcss-advanced-variables': {},
+		// 		// https://preset-env.cssdb.org/features
+		// 		'postcss-preset-env': {
+		// 			stage: 0,
+		// 		},
+		// 	},
+		// },
 	},
 
 	plugins: ['~/plugins/vue-mq'],
@@ -71,7 +74,7 @@ export default {
 
 	meta: {
 		theme_color: '#16191b',
-		ogHost: 'https://gibsonipsum.now.sh',
+		ogHost: 'https://gibsonipsum.com',
 		twitterCard: 'summary',
 		twitterCreator: '@stormwarning',
 	},

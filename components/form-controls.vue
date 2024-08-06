@@ -77,7 +77,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
 .controls {
 	background-color: rgb(226 230 232 / 5%);
 

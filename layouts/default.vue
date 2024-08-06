@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style>
 .app-container {
 	min-block-size: 100vb;
 

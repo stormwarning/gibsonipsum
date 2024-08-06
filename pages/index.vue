@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
 .the-body {
 	@media (min-width: 60em) {
 		display: grid;

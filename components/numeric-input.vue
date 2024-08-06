@@ -70,7 +70,7 @@ export default {
 }
 </script>
 
-<style scoped lang="postcss">
+<style scoped>
 input {
 	inset-inline-end: 0;
 	appearance: textfield;
