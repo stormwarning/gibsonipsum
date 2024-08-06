@@ -1,79 +1,74 @@
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
 :root {
-    --bg: #16191b;
-    --fg: #e2e6e8;
-    --blue: #2cccff;
+	--bg: #16191b;
+	--fg: #e2e6e8;
+	--blue: #2cccff;
 
-    --site-gutter: 4rem;
+	--site-gutter: 4rem;
 
-    @media (min-width: 72em) {
-        --site-gutter: 5rem;
-    }
+	@media (min-width: 72em) {
+		--site-gutter: 5rem;
+	}
 }
 
 ::selection {
-    color: var(--bg);
-    background-color: rgba(255, 255, 255, 0.99);
+	color: var(--bg);
+	background-color: rgb(255 255 255 / 99%);
 }
 
 html {
-    font-family: 'Inter', sans-serif;
+	font-family: Inter, sans-serif;
 }
 
 body {
-    color: var(--fg);
-    background-color: var(--bg);
-    overscroll-behavior: none;
+	overscroll-behavior: none;
+	color: var(--fg);
+	background-color: var(--bg);
 }
 
 .link {
-    &:link,
-    &:visited,
-    &:hover,
-    &:focus,
-    &:active {
-        transition-property: color, box-shadow;
-    }
+	&:link,
+	&:visited,
+	&:hover,
+	&:focus,
+	&:active {
+		transition-property: color, box-shadow;
+	}
 
-    &:focus {
-        outline: 0;
-        box-shadow: 0 0 0 2px currentColor;
-    }
+	&:focus {
+		outline: 0;
+		box-shadow: 0 0 0 2px currentcolor;
+	}
 }
 
 .f-72 {
-    font-size: 4.5rem;
+	font-size: 4.5rem;
 }
 
 .grey-100 {
-    color: var(--fg);
+	color: var(--fg);
 }
 
 .gibson {
-    color: var(--blue);
+	color: var(--blue);
 }
+
 .hover-gibson:hover,
 .hover-gibson:focus {
-    color: var(--blue);
+	color: var(--blue);
 }
 
 .mono {
-    font-family:
-        'SF Mono',
-        SFMono-Regular,
-        Consolas,
-        'Liberation Mono',
-        Menlo,
-        Courier,
-        monospace;
+	font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 500ms ease-in-out;
+	transition: opacity 500ms ease-in-out;
 }
+
 .fade-enter,
 .fade-leave-to {
-    opacity: 0;
+	opacity: 0%;
 }
