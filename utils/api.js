@@ -22,7 +22,6 @@ function* fetchAllWords({ url, nextSkip }) {
 		yield fetch(url)
 			.then((resp) => resp.json())
 			.then((resp) => {
-				console.log('RESPONSE', resp)
 				let { items, skip, total } = resp
 
 				if (items && items.length > 0) {
@@ -80,14 +79,14 @@ export async function fetchWords(options) {
 	 * generator function.
 	 * @type {{ words: WordObject[], shouldFetch: boolean }}
 	 */
-	let { words, shouldFetch } = next.value
+	let { words, shouldFetch } = await next.value
 
 	/**
 	 * Append words to main list and either call this function
 	 * again, or the callback function.
 	 */
 	if (words) wordlist = [...wordlist, ...words]
-	if (shouldFetch) fetchWords({ fetch, wordlist, onComplete })
+	if (shouldFetch) await fetchWords({ fetch, wordlist, onComplete })
 
 	onComplete(wordlist)
 }
@@ -101,8 +100,4 @@ export async function retrieveWords() {
  */
 export async function storeWords(wordsArray) {
 	await localforage.setItem('words', wordsArray)
-	// .then((value) => value)
-	// .catch((error) => {
-	// 	console.log('There was an error storing the words.', error)
-	// })
 }

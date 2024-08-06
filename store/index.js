@@ -72,7 +72,7 @@ export const actions = {
 			 * If there's no words in localstorage, fetch 'em from
 			 * the API, commit to state, and store locally.
 			 */
-			fetchWords({
+			await fetchWords({
 				onComplete(words) {
 					commitWordsToState(words)
 					storeWords(words)
