@@ -44,20 +44,33 @@ export default {
 	},
 
 	build: {
+		html: {
+			minify: {
+				collapseBooleanAttributes: true,
+				decodeEntities: true,
+				minifyCSS: false,
+				minifyJS: true,
+				processConditionalComments: true,
+				removeEmptyAttributes: true,
+				removeRedundantAttributes: true,
+				trimCustomFragments: true,
+				useShortDoctype: true,
+			},
+		},
 		/**
 		 * These PostCSS plugins don't seem to be needed any longer, and the
 		 * current config was causing issues with built styles.
 		 */
-		// postcss: {
-		// 	plugins: {
-		// 		// https://github.com/jonathantneal/postcss-advanced-variables#features
-		// 		// 'postcss-advanced-variables': {},
-		// 		// https://preset-env.cssdb.org/features
-		// 		'postcss-preset-env': {
-		// 			stage: 0,
-		// 		},
-		// 	},
-		// },
+		postcss: {
+			plugins: {
+				// https://github.com/jonathantneal/postcss-advanced-variables#features
+				// 'postcss-advanced-variables': {},
+				// https://preset-env.cssdb.org/features
+				'postcss-preset-env': {
+					stage: 0,
+				},
+			},
+		},
 	},
 
 	plugins: ['~/plugins/vue-mq'],
