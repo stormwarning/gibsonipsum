@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/no-mutating-props  -->
 <template>
-	<label class="relative">
+	<label class="relative flex justify-end">
 		<input
 			v-model.number="value"
-			class="absolute input-reset w3 h2 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
+			class="absolute input-reset outline-0 w3 h2 pa0 bn bg-transparent mono f4 fw5 lh-copy white tr"
 			type="number"
 			:class="shouldDisplayInput ? '' : 'is-hidden'"
 			:min="min"
@@ -14,7 +14,7 @@
 			@focus="onFocus"
 		/>
 		<span
-			class="dib w3 h2 pa0 mono f4 fw5 lh-copy white tr"
+			class="w3 h2 pa0 mono f4 fw5 lh-copy white tr"
 			:class="shouldDisplayInput ? 'o-40' : ''"
 			>{{ value | zeropad }}</span
 		>
@@ -72,6 +72,7 @@ export default {
 
 <style scoped>
 input {
+	inset-block-end: 1px;
 	inset-inline-end: 0;
 	appearance: textfield;
 
