@@ -134,34 +134,4 @@ export default {
 }
 </script>
 
-<style>
-.app-container {
-	min-block-size: 100vb;
-
-	@media (min-width: 60em) {
-		padding-inline-start: var(--site-gutter);
-	}
-}
-
-.the-nav {
-	inset-inline-start: 0;
-
-	@media (min-width: 60em) {
-		inline-size: var(--site-gutter);
-	}
-}
-
-abbr[title] {
-	text-decoration: none;
-}
-
-/**
-  1. Line up button icon with labels in control component.
- */
-.controls-button {
-	margin-block-start: 7.5rem; /* [1] */
-	appearance: none;
-	background-color: transparent;
-	border: 0;
-}
-</style>
+<style src="./default.css"></style>
