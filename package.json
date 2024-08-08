@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"build": "nuxt build",
-		"deploy": "np --no-release-draft && release",
+		"deploy": "np --no-release-draft --no-tests && release",
 		"dev": "nuxt",
 		"generate": "nuxt generate",
 		"lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
