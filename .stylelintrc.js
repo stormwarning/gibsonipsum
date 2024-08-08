@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 const config = {
-	extends: ['@zazen/stylelint-config', 'stylelint-config-recommended-vue'],
+	extends: ['@zazen/stylelint-config'],
 	rules: {
 		'at-rule-no-unknown': [true, { ignoreAtRules: ['include', 'mixin'] }],
 	},
