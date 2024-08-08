@@ -44,6 +44,20 @@ export default {
 	},
 
 	build: {
+		html: {
+			minify: {
+				collapseBooleanAttributes: true,
+				decodeEntities: true,
+				minifyCSS: false,
+				minifyJS: true,
+				processConditionalComments: true,
+				removeEmptyAttributes: true,
+				removeRedundantAttributes: true,
+				trimCustomFragments: true,
+				useShortDoctype: true,
+			},
+		},
+
 		postcss: {
 			plugins: {
 				// https://preset-env.cssdb.org/features
