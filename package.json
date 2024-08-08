@@ -1,61 +1,66 @@
 {
-  "private": true,
-  "name": "gibsonipsum",
-  "description": "A cyberpunk placeholder text generator.",
-  "author": "Jeff <rustyangel@gmail.com>",
-  "version": "1.3.2",
-  "scripts": {
-    "build": "nuxt build",
-    "deploy": "np --no-release-draft && release",
-    "dev": "nuxt",
-    "generate": "nuxt generate",
-    "lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
-    "lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
-    "now-build": "npm run generate",
-    "start": "nuxt start"
-  },
-  "dependencies": {
-    "@nuxtjs/google-analytics": "2.2.x",
-    "@nuxtjs/pwa": "3.0.0-beta.16",
-    "localforage": "1.7.3",
-    "nuxt": "2.9.x",
-    "vue-mq": "1.0.1"
-  },
-  "devDependencies": {
-    "@zazen/eslint-config": "1.0.x",
-    "@zazen/stylelint-config": "1.0.x",
-    "eslint": "6.3.x",
-    "eslint-plugin-vue": "5.2.x",
-    "husky": "3.0.x",
-    "lint-staged": "9.2.x",
-    "postcss-advanced-variables": "3.0.x",
-    "stylelint": "10.1.x"
-  },
-  "engines": {
-    "node": ">8.x"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "prettier-eslint --write",
-      "git add"
-    ],
-    "*.{css,vue}": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
-  "prettier": {
-    "arrowParens": "always",
-    "htmlWhitespaceSensitivity": "strict",
-    "proseWrap": "never",
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "all"
-  }
+	"name": "gibsonipsum",
+	"version": "1.3.2",
+	"private": true,
+	"description": "A cyberpunk placeholder text generator.",
+	"author": "Jeff (https://tidaltheory.io)",
+	"type": "module",
+	"exports": {
+		"./package.json": "./package.json"
+	},
+	"scripts": {
+		"build": "nuxt build",
+		"deploy": "np --no-release-draft && release",
+		"dev": "nuxt",
+		"generate": "nuxt generate",
+		"lint": "prettier-eslint '**/*.{js,vue}' --list-different --ignore '{dist,.nuxt}/**'",
+		"lint:styles": "stylelint '**/*.{css,vue}' --ip '{.nuxt,dist}/**'",
+		"now-build": "npm run generate",
+		"start": "nuxt start"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,vue}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.{css,vue}": [
+			"stylelint --fix",
+			"prettier --write"
+		],
+		"package.json": "prettier --write"
+	},
+	"prettier": "@zazen/prettier-config",
+	"dependencies": {
+		"@nuxtjs/google-analytics": "2.2.x",
+		"@nuxtjs/pwa": "3.0.0-beta.16",
+		"localforage": "1.7.3",
+		"nuxt": "2.15.8",
+		"vue-mq": "1.0.1"
+	},
+	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "7.21.11",
+		"@zazen/eslint-config": "6.8.0",
+		"@zazen/prettier-config": "1.1.0",
+		"@zazen/stylelint-config": "4.0.0",
+		"eslint": "8.56.0",
+		"eslint-plugin-nuxt": "4.0.0",
+		"eslint-plugin-vue": "9.27.0",
+		"husky": "3.0.x",
+		"lint-staged": "15.2.8",
+		"prettier": "3.3.3",
+		"stylelint": "16.8.1",
+		"stylelint-config-recommended-vue": "1.5.0"
+	},
+	"peerDependencies": {
+		"vue": "*",
+		"vuex": "*"
+	},
+	"engines": {
+		"node": ">18"
+	}
 }
